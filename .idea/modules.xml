@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Charver/.idea/Charver.iml" filepath="$PROJECT_DIR$/../Charver/.idea/Charver.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/biotech_script.iml" filepath="$PROJECT_DIR$/.idea/biotech_script.iml" />
     </modules>
   </component>
