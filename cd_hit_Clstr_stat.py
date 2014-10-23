@@ -12,8 +12,8 @@ import argparse
 import operator
 
 def ParseCommandLine():
-    parser = argparse.ArgumentParser('input .clstr file')
-    parser.add_argument('-i', '--input', type= ValidateFileRead,  required=True,help="input cluster file from cd-hit-est")
+    parser = argparse.ArgumentParser('parse cd-hit cluster file and output the cluster memeber count and summary')
+    parser.add_argument('-i', '--y  input', type= ValidateFileRead,required=True,help="input cluster (.clstr)file from cd-hit-est")
     theargs = parser.parse_args()
     return theargs
 
@@ -52,7 +52,7 @@ def main(input):
             count = count+1
     else:
         clstrdic[str(clstname).strip()] = count
-        
+
     # remove dummy first entry
     del clstrdic['']
 
