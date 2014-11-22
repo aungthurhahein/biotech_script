@@ -5,6 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Charver" />
+    <orderEntry type="module" module-name="rssparser" />
   </component>
 </module>
 

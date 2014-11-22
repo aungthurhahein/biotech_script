@@ -1,4 +1,5 @@
-awk '/^>/ 
+#!/bin/sh
+awk '/^>/
 {if (seqlen)
 	{print seqlen}; 
 	print ;
