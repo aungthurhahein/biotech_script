@@ -1,9 +1,11 @@
+#-------------------------------------------------------------------------#
 #!/usr/bin/env python
 #To retrive cluster distribution of cd-hit output .clsr file
 #Usage
 # $ cd_hit_clstr_stat.py xxx.clstr
 #Dev: Aung
 #Time: 22/10/2014
+#-------------------------------------------------------------------------#
 
 import os, os.path
 import sys
@@ -13,7 +15,7 @@ import operator
 
 def ParseCommandLine():
     parser = argparse.ArgumentParser('parse cd-hit cluster file and output the cluster member count and summary')
-    parser.add_argument('-i', '--y  input', type= ValidateFileRead,required=True,help="input cluster (.clstr)file from cd-hit-est")
+    parser.add_argument('-i', '--input', type= ValidateFileRead,required=True,help="input cluster (.clstr)file from cd-hit-est")
     theargs = parser.parse_args()
     return theargs
 

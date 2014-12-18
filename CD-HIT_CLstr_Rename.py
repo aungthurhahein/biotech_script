@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 #To rename cluster to have trinity output format
 #Usage
-# $ cd_hit_clstr_stat.py xxx.clstr
+# $ cd_hit_clstr_stat.py -i xxx.clstr
 #Dev: Aung
 #-------------------------------------------------------------------------#
 import argparse
@@ -14,8 +14,9 @@ import re
 from Bio import SeqIO
 
 def ParseCommandLine():
-    parser = argparse.ArgumentParser('parse cd-hit cluster file and rename the output like Trinity fasta file')
-    parser.add_argument('-i', '--input', type= ValidateFileRead,required=True,help="input cluster file from cd-hit")
+    parser = argparse.ArgumentParser('parse cd-hit cluster file and rename the output to Trinity.fasta format file')
+    parser.add_argument('-c', '--cluster', type= ValidateFileRead,required=True,help="(.clstr)cluster file from cd-hit output")
+    parser.add_argument('-s','--sequence',type=ValidateFileRead,required=True,help="Original fasta seq file")
     theArgs = parser.parse_args()
     return theArgs
 
@@ -31,11 +32,11 @@ def ValidateFileRead(theFile):
         raise argparse.ArgumentTypeError('File is not readable')
 
 
-def main(input):
+def main(cluster,sequence):
 
     #check input file
     try:
-        inputfile=open(input,"rb")
+        inputfile=open(cluster,"rb")
     except:
         p.Print ("file not given...")
         exit(0)
@@ -43,27 +44,27 @@ def main(input):
     C=0
     for line in inputfile:
         if ">Cluster" in line:
-            I=1
+            I=0
             C= C+1
-            print ('Cluster %s' %C)
+            # print ('Cluster %s' %C)
         else:
             startmatch= re.search("(>.*)",line)
             if startmatch:
+                I= I+1
                 header = startmatch.group(1)
                 # remove dots
                 header = re.sub('\.\.+', ' ', header)
                 # remove after space
                 headerid= header.split(" ")[0]
-
-                # print headerid, ">C{0}-g1-i{1}".format(C,I)
-
-             # read sequence file and print the corresponding sequence
-            for seq_record in SeqIO.parse("test.fasta", "fasta"):
-                if seq_record.id == headerid:
-                    print ">C{0}-g1-i{1}".format(C,I)
-                    print(repr(seq_record.seq))
-            I= I+1
+                #remove >
+                headerid= headerid.split(">")[1]
+                # read sequence file and print the corresponding sequence
+                for seq_record in SeqIO.parse(sequence, "fasta"):
+                    if seq_record.id == headerid:
+                        print ">c{0}_g1_i{1} len={2}".format(C,I,len(seq_record.seq))
+                        print(seq_record.seq)
+                        break;
 
 if __name__ == "__main__":
     args = ParseCommandLine()
-    main(args.input)
+    main(args.cluster,args.sequence)

@@ -2,16 +2,22 @@
 #!/usr/bin/env python
 #To extract DE sample by expression levels and sample specific
 #Usage
-# $
+# $ python Extract_DE_Sample.py table1 table2
 #Dev: Aung
 #Time:17/10/2014
 #-------------------------------------------------------------------------#
 import MySQLdb
 import sys
 
-table1 = 'G000001'
-table2 = 'G0000001'
+# table1 = 'G000001'
+# table2 = 'G0000001'
+
+table1 = sys.argv[1]
+table2 = sys.argv[2]
 mainquery=[]
+mainquery_C=[]
+mainquery_M=[]
+mainquery_S=[]
 CM=[]
 CS=[]
 MS=[]
@@ -66,16 +72,17 @@ db = MySQLdb.connect(host="127.0.0.1",
 #db cursor
 cur = db.cursor()
 # read table with queries
-cur.execute('SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null' % (table1,table1,table2,table1,table2,table2))
+cur.execute('SELECT %s.Feature,%s.C,%s.M,%s.S FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null' % (table1,table1,table1,table1,table1,table2,table1,table2,table2))
 
 # put into list
 for row in cur.fetchall() :
-    for col in row:
-        mainquery.append(col)
+        mainquery.append(row[0])
+        mainquery_C.append(row[1])
+        mainquery_M.append(row[2])
+        mainquery_S.append(row[3])
 cur.close
 db.close
 #-----------------------------------------#
-
 #CM
 CM_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C > %s.M'
 loop_query(table1,table2,CM_q,CM)
@@ -105,13 +112,20 @@ Specific_loop_query(table1,table2,M_q,M)
 Specific_loop_query(table1,table2,S_q,S)
 Specific_loop_query(table1,table2,MS_q2,MS2)
 
-
 # loop all query and find match with others
 # and print out with tabular form
-print "ID\tCM\tCS\tMC\tMS\tSC\tSM\tC\tM\tS\tMS"
+print "ID\tC\tM\tS\tCM\tCS\tMC\tMS\tSC\tSM\tC\tM\tS\tMS"
+count=0
 for i in mainquery:
     print i,
     print "\t",
+    print mainquery_C[count],
+    print "\t",
+    print mainquery_M[count],
+    print "\t",
+    print mainquery_S[count],
+    print "\t",
+    count = count+1
     if i in CM:
         print 1,
     print "\t",
