@@ -1,8 +1,8 @@
 #----------------------------------------#
-# convert fastq sequence header into pair(/1,/2) format
+#convert fastq sequence header into pair(/1,/2) format without Biopython
 #usage change_header_fastq.py file1.fastq file2.fastq
 # __author__ = 'atrx'
-# Date: 19122014
+# Date: 22122014
 #----------------------------------------#
 import sys
 
@@ -28,3 +28,4 @@ for line in file_read2:
         secondpair.write("{0} {1} {2}".format(id,headerid[1],headerid[2]))
     else:
         secondpair.write(line)
+

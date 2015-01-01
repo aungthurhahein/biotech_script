@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 #To extract DE sample by expression levels and sample specific
 #Usage
-# $ python Extract_DE_Sample.py table1 table2
+# $ python Extract_DE_Sample.py table1 table2 db
 #Dev: Aung
 #Time:17/10/2014
 #-------------------------------------------------------------------------#
@@ -14,6 +14,7 @@ import sys
 
 table1 = sys.argv[1]
 table2 = sys.argv[2]
+database = sys.argv[3]
 mainquery=[]
 mainquery_C=[]
 mainquery_M=[]
@@ -34,7 +35,7 @@ def loop_query(t1,t2,query,list):
     db2 = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db=database,
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
 
     cur2 = db2.cursor()
@@ -51,7 +52,7 @@ def Specific_loop_query(t1,t2,query,list):
     db3 = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db=database,
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
     cur3 = db3.cursor()
     cur3.execute(query % (table1,table1,table2,table1,table2,table2,table1,table1,table1))
@@ -67,7 +68,7 @@ def Specific_loop_query(t1,t2,query,list):
 db = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db=database,
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
 #db cursor
 cur = db.cursor()
