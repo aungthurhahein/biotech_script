@@ -90,12 +90,12 @@ def main(input):
     print""
     print"Summary statistics"
     print "Member without similar sequences:", count1
-    print "1>Member<=5", count2
-    print "5>Member<=10", count3
-    print "10>Member<=20"  , count4
-    print "20>Member<=40"  , count5
-    print "40>Member<=80"  , count6
-    print "80>Member<=100"  , count7
+    print "1>Member<5", count2
+    print "5=>Member<10", count3
+    print "10=>Member<20"  , count4
+    print "20=>Member<40"  , count5
+    print "40=>Member<80"  , count6
+    print "80=>Member<100"  , count7
     print "Member>100"  , count8
 
 

@@ -16,8 +16,9 @@ final_records=[];final_records2=[]
 for seq_record in SeqIO.parse(file1, "fastq"):
     #read header
     header =seq_record.id
+    desc = seq_record.description.replace(" ","_")
     #add /1 at the end
-    header ="{0}/1".format(header)
+    header ="{0}_{1}/1".format(header,desc)
     seq_record.id = header
     # record = SeqRecord(seq_record.seq,id=header,description=seq_record.description)
     #transfer
@@ -28,8 +29,10 @@ SeqIO.write(final_records,"{0}_1fmt.fastq".format(file1), "fastq")
 for seq_record in SeqIO.parse(file2, "fastq"):
     #read header
     header =seq_record.id
+    desc = seq_record.description.replace(" ","_")
+    desc.replace(" ","_")
     #add /1 at the end
-    header ="{0}/2".format(header)
+    header ="{0}_{1}/2".format(header,desc)
     seq_record.id = header
     # record = SeqRecord(seq_record.seq,id=header,description=seq_record.description)
     # record.letter_annotations["phred_quality"]=seq_record.letter_annotations["phred_quality"]

@@ -8,18 +8,11 @@ from sys import argv
 def main(script,filename):
     print("Opening the file")
     file_read = open(filename)
-
-
-
     #code
-    print_all(file_read)
+    loop_by_line(file_read)
     #code
-
-
-
     file_read.close()
     print("Done Reading file")
-
 
 # function to call
 def print_all(f):

@@ -1,8 +1,8 @@
 #-------------------------------------------------------------------------#
 #!/usr/bin/env python
-# To cut out fasta sequence with longer than xxx bp
+# To cut out fastq sequence with longer than xxx bp
 # Usage
-# $ fasta_cut_length.py xxx.fasta length(int)
+# $ fastq_cut_length.py xxx.fasta length(int)
 # Dev: Aung
 # Date: 05012015
 #-------------------------------------------------------------------------#
@@ -11,11 +11,11 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
 # user parameters
-fasta_file = sys.argv[1]
+fastq_file = sys.argv[1]
 length = sys.argv[2]
 
 final_records = []
-for seq_record in SeqIO.parse(fasta_file,"fasta"):
+for seq_record in SeqIO.parse(fasta_file,"fastq"):
     seq_len = len(seq_record.seq)
     if seq_len < int(length):
         record = SeqRecord(seq_record.seq,id=seq_record.id,description=seq_record.description)
@@ -23,4 +23,4 @@ for seq_record in SeqIO.parse(fasta_file,"fasta"):
     else:
         print seq_record.id,
         print seq_len
-    SeqIO.write(final_records, "{0}_{1}_bp.fasta".format(fasta_file,length), "fasta")
+    SeqIO.write(final_records, "{0}_{1}_bp.fastq".format(fastq_file,length), "fastq")
