@@ -4,6 +4,7 @@
 # just a container to reuse for sytstem without argparse module
 
 from sys import argv
+import time
 
 def main(script,filename):
     print("Opening the file")
@@ -26,7 +27,8 @@ def print_a_line(line_count, f):
 
 def loop_by_line(f):
     for i in f:
-        f.readline()
+        print i
+        time.sleep(3)
 
 
 
