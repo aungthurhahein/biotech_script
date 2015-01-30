@@ -21,7 +21,6 @@ fastqora = raw_input(">")
 
 filetype= filetype_validation(fastqora)
 
-
 for seq_record in SeqIO.parse("t1.fastq", filetype):
     print(seq_record.id)
     print(repr(seq_record.seq))

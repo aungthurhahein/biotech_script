@@ -7,7 +7,8 @@
 # output: 
 # 1.reads.txt : fastq headers
 # 2. mapped.txt: mapped headers
-# 3. unmapped.txt: unmapped headers
+# 3. mapped_wRef.txt: mapped Original_ids---> Reference_ids
+# 4. unmapped.txt: unmapped headers
 #-----------------------------------------------------#
 
 FQ=$1
@@ -16,6 +17,8 @@ BAM=$2
 samtools sort $BAM -f sorted.bam && samtools index sorted.bam
 # print out mapped headers
 samtools view -F 4 sorted.bam | awk '{ print "@"$1"" }' | sort -u > mapped.txt
+# print out mapped headers with original read_ids
+samtools view -F 4 sorted.bam | awk '{ print "@"$1""  " "$3"" }' | sort -u > mapped_wRef.txt
 # grep only the fq headers.
 awk '(NR % 4 == 1)' $FQ |  sort -u > reads.txt
 # supress and print unmapped

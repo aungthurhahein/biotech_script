@@ -107,7 +107,7 @@ loop_query(table1,table2,MS_q,MS)
 C_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C > 0 and %s.M = 0 and %s.S = 0'
 M_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C = 0 and %s.M > 0 and %s.S = 0'
 S_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C = 0 and %s.M = 0 and %s.S > 0'
-MS_q2 = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C = 0 and (%s.M > 0 or %s.S > 0)'
+MS_q2 = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.C = 0 and (%s.M > 0 AND %s.S > 0)'
 Specific_loop_query(table1,table2,C_q,C)
 Specific_loop_query(table1,table2,M_q,M)
 Specific_loop_query(table1,table2,S_q,S)

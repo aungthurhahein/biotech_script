@@ -2,7 +2,7 @@
 #--------------------------------------------------------------------------#
 # mapp annotataion text file with sample specific text file
 # Date: 9012015
-# Usage: annotataion_map.py
+# Usage: annotataion_map.py annotation.txt DE.csv
 # __author__ = 'atrx'
 #--------------------------------------------------------------------------#
 
@@ -29,9 +29,10 @@ for line in matchfile:
     ifile = open(infile,'r')
     for annot in ifile:
         i_split = re.split(r'\t+', annot)
-        annot_id = str(i_split[1])
+        annot_id = str(i_split[0]) # 1 for transcriptid and 0 for genes
         if file_id.strip() == annot_id.strip():
             print line.strip('\n'),
+            print "\t",
             for item in i_split:
                 if len(item) > 750:
                     print "{0}\t".format(item[0:750].strip()),
