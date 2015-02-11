@@ -19,7 +19,7 @@ samtools sort $BAM -f sorted.bam && samtools index sorted.bam
 samtools view -F 4 sorted.bam | awk '{ print ">"$1"" }' | sort -u > mapped.txt
 # print out mapped headers
 samtools view -F 4 sorted.bam | awk '{ print ">"$1""  " "$3"" }' | sort -u > mapped_wRef.txt
-# print out mapped headers
+# print out unmapped headers
 samtools view -f 0x4 sorted.bam | awk '{ print ">"$1"" }' | sort -u > unmapped_wRef.txt
 # grep only the fq headers.
 grep '>' $FASTA |  sort -u > reads.txt

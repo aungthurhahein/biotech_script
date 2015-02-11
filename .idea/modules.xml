@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Charver/.idea/Charver.iml" filepath="$PROJECT_DIR$/../Charver/.idea/Charver.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/biotech_script.iml" filepath="$PROJECT_DIR$/.idea/biotech_script.iml" />
-      <module fileurl="file://$USER_HOME$/github-repos/.idea/github-repos.iml" filepath="$USER_HOME$/github-repos/.idea/github-repos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../rssparser/.idea/rssparser.iml" filepath="$PROJECT_DIR$/../rssparser/.idea/rssparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../volatility-plugins-master/.idea/volatility-plugins-master.iml" filepath="$PROJECT_DIR$/../volatility-plugins-master/.idea/volatility-plugins-master.iml" />
     </modules>
   </component>
 </project>
-

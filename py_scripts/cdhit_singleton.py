@@ -1,13 +1,15 @@
 #! /usr/bin/env python
+"""
 #--------------------------------------------------------------------------#
 # cdhit file parser to get singleton members
 # __author__ = 'atrx'
 # Date: 13012015
 #--------------------------------------------------------------------------#
+"""
 import sys
 import linecache
 
-usage= "Usage %s infile" % sys.argv[0] #specific massage for no input
+usage= "Usage %s infile" % sys.argv[0] # specific massage for no input
 
 try:
     statsfile = sys.argv[1]

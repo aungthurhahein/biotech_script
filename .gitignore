@@ -2,3 +2,6 @@
 *.tsv
 *.fastq
 *.fasta
+*.xml
+*.iml
+testfile/*

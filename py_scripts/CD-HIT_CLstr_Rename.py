@@ -1,15 +1,15 @@
-#-------------------------------------------------------------------------#
 #!/usr/bin/env python
+"""
+#-------------------------------------------------------------------------#
 #To rename cluster to have trinity output format
 #Usage
 # $ cd_hit_clstr_stat.py -i xxx.clstr
 #Dev: Aung
 #-------------------------------------------------------------------------#
+"""
 import argparse
-import os, os.path
-import sys
-import math
-import operator
+import os
+import os.path
 import re
 from Bio import SeqIO
 
@@ -34,18 +34,18 @@ def ValidateFileRead(theFile):
 
 def main(cluster,sequence):
 
-    #check input file
+    # check input file
     try:
         inputfile=open(cluster,"rb")
     except:
         p.Print ("file not given...")
         exit(0)
+    f1 = open("clstrtrinitymap.txt", 'w')
     C=0
     for line in inputfile:
         if ">Cluster" in line:
             I=0
             C= C+1
-            # print ('Cluster %s' %C)
         else:
             startmatch= re.search("(>.*)",line)
             if startmatch:
@@ -55,15 +55,18 @@ def main(cluster,sequence):
                 header = re.sub('\.\.+', ' ', header)
                 # remove after space
                 headerid= header.split(" ")[0]
-                #remove >
+                # remove >
                 headerid= headerid.split(">")[1]
                 # read sequence file and print the corresponding sequence
                 for seq_record in SeqIO.parse(sequence, "fasta"):
                     if seq_record.id == headerid:
+                        clstr_trinity= ">c{0}_g1_i{1} len={2}".format(C,I,len(seq_record.seq))+"\t"+headerid+"\n"
+                        f1.write(clstr_trinity)
                         print ">c{0}_g1_i{1} len={2}".format(C,I,len(seq_record.seq))
                         print(seq_record.seq)
-                        break;
+                        break
+                f1.close
 
 if __name__ == "__main__":
     args = ParseCommandLine()
-    main(args.cluster,args.sequence)
+    main(args.cluster, args.sequence)

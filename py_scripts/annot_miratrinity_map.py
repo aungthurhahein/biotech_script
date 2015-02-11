@@ -1,15 +1,17 @@
 #! /usr/bin/env python
+"""
 #--------------------------------------------------------------------------#
 # mapping annotation file with miratrinity_cdhit
 # __author__ = 'atrx'
 # usage: annot_miratrinity_map.py annotation.txt MiraTrinity_Member_all.txt
 # Date: 14012015
 #--------------------------------------------------------------------------#
+"""
+
 import sys
-import linecache
 import re
 
-usage= "Usage %s infile" % sys.argv[0] #specific massage for no input
+usage= "Usage %s infile" % sys.argv[0] # specific massage for no input
 
 try:
     annotationfile = sys.argv[1]
@@ -28,16 +30,16 @@ for line in tmfile:
         # loop annotation file
         for annot in annotationf:
             annot_split = re.split(r'\t+', annot)
-            annot_id = str(annot_split[1]) #trinitity_isoforms_id
+            annot_id = str(annot_split[1]) # trinitity_isoforms_id
             # compare all ids with annotaion_trinity_id
             tuple = tuple.replace('.','').replace('>','')
             if annot_id.strip() == tuple.strip():
                 for x in cond1:
-                    cond2 =re.search(r'c01_PM\w+',x)
+                    cond2 = re.search(r'c01_PM\w+',x)
                     if cond2:
                         print cond2.group(), # Mira
                         print "\t",
-                        print cond1[0],cond1[1], #Cluster
+                        print cond1[0],cond1[1], # Cluster
                         print "\t",
                         print annot # annotation
         else:

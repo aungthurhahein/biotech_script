@@ -1,11 +1,13 @@
-#-------------------------------------------------------------------------#
 #!/usr/bin/env python
+"""
+#-------------------------------------------------------------------------#
 #To extract DE sample by expression levels and sample specific from single table
 #Usage
 # $ python Extract_DE_Sample.py table1
 #Dev: Aung
 #Time:17/10/2014
 #-------------------------------------------------------------------------#
+"""
 import MySQLdb
 import sys
 
@@ -13,12 +15,12 @@ table1 = sys.argv[1]
 mainquery=[];mainquery_C=[];mainquery_M=[];mainquery_S=[];
 CM=[];CS=[];MS=[];SM=[];MC=[];SC=[];C=[];M=[];S=[];MS2=[];
 
-#DE comparision function
+# DE comparision function
 def loop_query(t1,query,list):
     db2 = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db="C01_MIRA",
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
 
     cur2 = db2.cursor()
@@ -29,12 +31,12 @@ def loop_query(t1,query,list):
     cur2.close
     db2.close
 
-#sample specific function
+# sample specific function
 def Specific_loop_query(t1,query,list):
     db3 = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db="C01_MIRA",
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
     cur3 = db3.cursor()
     cur3.execute(query % (table1,table1,table1,table1,table1))
@@ -50,7 +52,7 @@ def Specific_loop_query(t1,query,list):
 db = MySQLdb.connect(host="127.0.0.1",
                      user="root",
                       passwd="",
-                      db="CO1",
+                      db="C01_MIRA",
                       unix_socket="/opt/lampp/var/mysql/mysql.sock")
 #db cursor
 cur = db.cursor()
@@ -77,7 +79,7 @@ MC_q = 'SELECT %s.Feature FROM %s where %s.M > %s.C'
 loop_query(table1,MC_q,MC)
 #SC
 SC_q = 'SELECT %s.Feature FROM %s where %s.S > %s.C'
-loop_query(table1,MC_q,SC)
+loop_query(table1,SC_q,SC)
 #SM
 SM_q = 'SELECT %s.Feature FROM %s where %s.S > %s.M'
 loop_query(table1,SM_q,SM)

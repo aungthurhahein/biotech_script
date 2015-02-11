@@ -1,14 +1,15 @@
 #! /usr/bin/env python
+"""
 #--------------------------------------------------------------------------#
 # mapp annotataion text file with sample specific text file
 # Date: 9012015
 # Usage: annotataion_map.py annotation.txt DE.csv
 # __author__ = 'atrx'
 #--------------------------------------------------------------------------#
-
+"""
 import sys
 import re
-usage= "Usage %s infile" % sys.argv[0] #specific massage for no input
+usage= "Usage %s infile" % sys.argv[0] # specific massage for no input
 
 try:
     infile = sys.argv[1]
@@ -19,7 +20,7 @@ except:
 def rewind(f):
     f.seek(0)
 
-#open file read
+# open file read
 matchfile = open(matchfile,'r')
 print "ID\tC\tM\tS\tCM\tCS\tMC\tMS\tSC\tSM\tC\tM\tS\tMS\tgene-id\tTranscript-id\tsprot-Top-BLASTX-hit\tTrEMBL-Top-BLASTX-hit\tRNAMMER\tprot-id\tprot-coords\tsprot-Top-BLASTP-hit\tTrEMBL-Top-BLASTP-hit\tPfam\tSignalP\tTmHMM\teggnog\tgene-ontology-blast\tgene-ontology-pfam\ttranscript\tpeptide"
 for line in matchfile:
@@ -41,7 +42,7 @@ for line in matchfile:
             print "\n"
     else:
         ifile.close()
-    if len(yvalue) == 0: continue #skipping blank lines
+    if len(yvalue) == 0:continue # skipping blank lines
 
 matchfile.close()
 ifile.close()

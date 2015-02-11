@@ -95,7 +95,7 @@ MC_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where 
 loop_query(table1,table2,MC_q,MC)
 #SC
 SC_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.S > %s.C'
-loop_query(table1,table2,MC_q,SC)
+loop_query(table1,table2,SC_q,SC)
 #SM
 SM_q = 'SELECT %s.Feature FROM %s left join %s ON %s.Feature = %s.Feature where %s.Feature is null and %s.S > %s.M'
 loop_query(table1,table2,SM_q,SM)

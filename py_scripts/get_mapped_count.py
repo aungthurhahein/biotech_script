@@ -1,5 +1,5 @@
 #----------------------------------------#
-# get occurences of ref_ids by Lib_IDs
+# get occurences of ref_ids by Lib_IDs for unmapped reads
 # modification tips: file type, column of file ids
 # __author__ = 'atrx'
 # Date: 22012015
@@ -30,8 +30,9 @@ for seq in SeqIO.parse(fasta_file,"fasta"):
 
 for seq_record in contig_list:
         contig = seq_record.strip()
+        # print contig
         if contig in id_list:
             lo= id_list.index(contig)
-            print "1 "+id_list[lo]
+            print id_list[lo]+"\t"+"1"
         else:
-            print "0 " +seq_record
+            print contig+"\t"+"0"
