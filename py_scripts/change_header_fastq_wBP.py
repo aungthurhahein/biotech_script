@@ -10,30 +10,32 @@
 import sys
 from Bio import SeqIO
 
-file1 = sys.argv[1];file2= sys.argv[2]
-final_records=[];final_records2=[]
+file1 = sys.argv[1]
+file2 = sys.argv[2]
+final_records = []
+final_records2 = []
 
 for seq_record in SeqIO.parse(file1, "fastq"):
     # read header
-    header =seq_record.id
-    headerid= header.split('.')
+    header = seq_record.id
+    headerid = header.split('.')
     desc = seq_record.description.split()
     # add /1 at the end
-    header ="{0}_{1}#0/1".format(headerid[0],desc[1])
+    header = "{0}_{1}#0/1".format(headerid[0], desc[1])
     seq_record.id = header
     seq_record.description = "({0})".format(seq_record.description)
     # record = SeqRecord(seq_record.seq,id=header,description=seq_record.description)
     # record.letter_annotations["phred_quality"]=seq_record.letter_annotations["phred_quality"]
     final_records.append(seq_record)
-SeqIO.write(final_records,"{0}_1fmt.fastq".format(file1), "fastq")
+SeqIO.write(final_records, "{0}_1fmt.fastq".format(file1), "fastq")
 
 for seq_record in SeqIO.parse(file2, "fastq"):
     # read header
-    header =seq_record.id
-    headerid= header.split('.')
+    header = seq_record.id
+    headerid = header.split('.')
     desc = seq_record.description.split()
     # add /1 at the end
-    header ="{0}_{1}#0/2".format(headerid[0],desc[1])
+    header = "{0}_{1}#0/2".format(headerid[0], desc[1])
     seq_record.id = header
     seq_record.description = "({0})".format(seq_record.description)
     # record = SeqRecord(seq_record.seq,id=header,description=seq_record.description)

@@ -6,21 +6,22 @@ import re
 
 database = "Mapping"
 updatetable = sys.argv[1]
-common=[]
+common = []
 
 db = MySQLdb.connect(host="127.0.0.1",
                      user="root",
-                      passwd="",
-                      db=database,
-                      unix_socket="/opt/lampp/var/mysql/mysql.sock")
-#db cursor
+                     passwd="",
+                     db=database,
+                     unix_socket="/opt/lampp/var/mysql/mysql.sock")
+# db cursor
 cur = db.cursor()
-cur.execute('select blastn.id,blastn.description from %s left join blastn on %s.transcript_id = blastn.id where blastn.id is not null' % (updatetable,updatetable))
-for row in cur.fetchall() :
+cur.execute('select blastn.id,blastn.description from %s left join blastn on'
+            ' %s.transcript_id = blastn.id where blastn.id is not null' % (updatetable, updatetable))
+for row in cur.fetchall():
     common.append(row)
 cur.close
 db.close
-print len(common)
+
 if len(common) <= 0:
     print "No records"
 else:

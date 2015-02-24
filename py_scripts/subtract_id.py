@@ -6,9 +6,9 @@ import codesnippets
 annotfile = sys.argv[1]
 idlist = sys.argv[2]
 annotfile_read = open(annotfile, 'r')
-idlist_read= open(idlist,'r')
-id_list=[]
-annot_list=[]
+idlist_read = open(idlist, 'r')
+id_list = []
+annot_list = []
 
 annot_list = codesnippets.file_read_line(annotfile_read)
 id_list = codesnippets.file_read_line(idlist_read)

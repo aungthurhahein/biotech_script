@@ -28,7 +28,7 @@ for clstrid in clstr_id:
             for clst_mem in x_split[1:]:
                 for seq_record in SeqIO.parse(fastafile, "fasta"):
                     if seq_record.id.strip() == clst_mem.strip('>').strip():
-                        print ">"+seq_record.id
+                        print ">" + seq_record.id
                         print seq_record.seq
 
 

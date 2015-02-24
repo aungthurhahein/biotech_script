@@ -9,7 +9,7 @@
 import sys
 import linecache
 
-usage= "Usage %s infile" % sys.argv[0] # specific massage for no input
+usage = "Usage %s infile" % sys.argv[0]  # specific massage for no input
 
 try:
     statsfile = sys.argv[1]
@@ -17,23 +17,19 @@ try:
 except:
     print usage, sys.exit(1)
 
+
 def rewind(f):
     f.seek(0)
 
-statsfile = open(statsfile,'r')
+statsfile = open(statsfile, 'r')
 count = 0
 
 for line in statsfile:
-    singfile = open(singletonfile,'r')
-    count = count+1
+    singfile = open(singletonfile, 'r')
+    count += 1
     if ">Cluster" in line:
         for singleton in singfile:
             clst = singleton.split(":")
             if line.strip() == clst[0].strip():
                 print line,
-                print linecache.getline(sys.argv[1], count+1)
-                print linecache.getline(sys.argv[1], count+2)
-                print linecache.getline(sys.argv[1], count+3)
-                print linecache.getline(sys.argv[1], count+4)
-                print linecache.getline(sys.argv[1], count+5)
-                print linecache.getline(sys.argv[1], count+6)
+                print linecache.getline(sys.argv[1], count + 1)
