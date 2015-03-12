@@ -1,7 +1,7 @@
 """
 # parse cdhist_clstr_paser output into groups
 # Input: #cluser id    #member1....#memberN
-# usage: python cdhit-clstr_countbyID.py xxxCluster.stat xxxInput.fasta ClstrID(1,2,..n)
+# usage: python cdhit-clstr_countbyID.py xxxCluster.stat xxxInput.fasta  ClstrIDs_in_this_format "1,2,..n"
 # output: #clusterid #Count of RefID #Count of Org_ID
 # Dev: Aung
 # Date: 10022015

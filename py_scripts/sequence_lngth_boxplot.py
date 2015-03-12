@@ -3,7 +3,6 @@ draw a box plot from list of sequence length
 __author__ = 'aung'
 Date: 24022015
 """
-import sys
 import numpy as np
 import plotly.plotly as py
 from plotly.graph_objs import *
@@ -50,12 +49,11 @@ illumina_trinity_SRR388222_SR_array = np.genfromtxt(
                                     "/home/aung/server_downloads/length_distribution/PM/illumina_trinity_SR/"
                                     "illumina_SR388222_out.Trinity.fasta_lngth.txt_lngthcol")
 # c01
-c01_MIRA_array = np.genfromtxt(
-                "/home/aung/server_downloads/length_distribution/PM/c01/"
-                "c01_MIRA_lngth.txt_lngthcol")
-c01_Trinity_array = np.genfromtxt(
-    "/home/aung/server_downloads/length_distribution/PM/c01/"
-    "c01_Trinity_lngth.txt_lngthcol")
+c01_MIRA_array = np.genfromtxt("/home/aung/server_downloads/length_distribution/PM/c01/c01_MIRA_lngth.txt_lngthcol")
+c01_Trinity_array = np.genfromtxt("/home/aung/server_downloads/length_distribution/PM/c01/c01_Trinity_lngth.txt_lngthcol")
+c01_newbler_array = np.genfromtxt("/home/aung/server_downloads/length_distribution/PM/454Isotigs.fna_lngth_lngthcol")
+
+Testis_Ovary_array = np.genfromtxt("/home/aung/server_downloads/length_distribution/PM/all_pmonodon.fasta.lngth_lngthcol")
 
 a01_mira = Box(
     y=a01_mira_array,
@@ -130,17 +128,30 @@ c01_Trinity = Box(
     y= c01_Trinity_array,
     name="C01_Trinity"
 )
+c01_newbler = Box(
+    y= c01_newbler_array,
+    name="C01_Newbler"
+)
+Testis_Ovary = Box(
+    y=Testis_Ovary_array,
+    name="Testis_Ovary"
+)
 
-layout = Layout(
+layout1 = Layout(
     yaxis=YAxis(
-        title="sequence lengtt(bp)",
+        range=[0,2000]
+    )
+)
+
+layout2 = Layout(
+    yaxis=YAxis(
         range=[2000,16000]
     )
 )
 
-data = Data([a01_mira, a01_454_trinity, e01pm_cap397, e01pm_cap3DF, e01pm_mira, e01pm_trinity,e02pm_cap397,e02pm_cap3DF,e02pm_mira,e02pm_trinity,illumina_trinity_SRR388207_PE,illumina_trinity_SRR388221_PE,illumina_trinity_SRR388222_PE,illumina_trinity_SRR388207_SR,illumina_trinity_SRR388221_SR,illumina_trinity_SRR388222_SR,c01_MIRA,c01_Trinity])
-fig = Figure(data=data, layout=layout)
+data = Data([a01_mira, a01_454_trinity, e01pm_cap397, e01pm_cap3DF, e01pm_mira, e01pm_trinity,e02pm_cap397,e02pm_cap3DF, e02pm_mira, e02pm_trinity,illumina_trinity_SRR388207_PE,illumina_trinity_SRR388221_PE,illumina_trinity_SRR388222_PE,illumina_trinity_SRR388207_SR,illumina_trinity_SRR388221_SR,illumina_trinity_SRR388222_SR, c01_MIRA, c01_Trinity, c01_newbler, Testis_Ovary])
+fig = Figure(data=data, layout=layout1)
+fig2 = Figure(data=data, layout=layout2)
 # plot_url = py.plot(fig, filename='Sequence Length Distribution')
-py.image.save_as(fig, 'sequencelengthdistribution_2k_16k.png')
-
-
+py.image.save_as(fig, 'sequencelengthdistribution_PM_0_2k.png')
+py.image.save_as(fig2, 'sequencelengthdistribution_PM_2k_16k.png')

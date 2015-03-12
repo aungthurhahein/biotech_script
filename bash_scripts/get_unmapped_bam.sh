@@ -1,3 +1,4 @@
+#!/bin/sh
 x#! /bin/bash
 #-----------------------------------------------------#
 # get unmapped reads from bam files
