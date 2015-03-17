@@ -1,8 +1,8 @@
 """
 # mapped annotaion between 3 sample DE result and 2 sample pairwise comparison
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # 11032015
-__author__ = 'aung'
+__author__ = 'Aung ေအာင်သူရဟိန်း'
 """
 import sys
 

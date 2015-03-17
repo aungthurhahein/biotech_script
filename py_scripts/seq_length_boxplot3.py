@@ -1,4 +1,4 @@
-__author__ = 'aung'
+__author__ = 'Aung ေအာင်သူရဟိန်း'
 import numpy as np
 import plotly.plotly as py
 from plotly.graph_objs import *

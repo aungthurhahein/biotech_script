@@ -1,4 +1,4 @@
-__author__ = 'aung'
+__author__ = 'Aung ေအာင်သူရဟိန်း'
 
 from numpy import *
 import pandas as pd

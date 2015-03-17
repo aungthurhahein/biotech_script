@@ -2,7 +2,7 @@
 #----------------------------------------#
 #convert fastq sequence header into pair(/1,/2) format without Biopython
 #usage change_header_fastq_wBP.py file1.fastq file2.fastq
-# __author__ = 'atrx'
+# __author__ = 'Aung ေအာင်သူရဟိန်း'
 # Date: 23122014
 #----------------------------------------#
 """

@@ -1,7 +1,7 @@
 #! /bin/bash
 #-----------------------------------------------------#
 # get unmapped reads from bam files
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # 18122014
 # usage: get_unmapped_bam.sh sample.fasta bowtie2.bam
 # output: 

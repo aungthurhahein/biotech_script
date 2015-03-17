@@ -4,7 +4,7 @@
 #To extract DE sample by expression levels and sample specific from single table
 #Usage
 # $ python Extract_DE_Sample.py table1
-#Dev: Aung
+#Dev: Aung ေအာင်သူရဟိန်း
 #Time:17/10/2014
 #-------------------------------------------------------------------------#
 """

@@ -1,10 +1,11 @@
 #! /usr/bin/env python
+
 """
 # parse cdhist_clstr_paser output by samples
 # Input: #cluser id    #member1....#memberN
 # usage: python cdhit-clstr_classifer_bysamples.py xxxCluster.stat.parse
 # output: 5 files are written at line 45
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # Date: 10032015
 """
 
@@ -79,8 +80,8 @@ for res in cluster_replace:
         MS_list.append(res)
 codesnippets.write_file(CMS_list, "{0}_CMS".format(clstrfile))
 codesnippets.write_file(CM_list, "{0}_CM".format(clstrfile))
-codesnippets.write_file(CM_list, "{0}_CS".format(clstrfile))
-codesnippets.write_file(CM_list, "{0}_MS".format(clstrfile))
+codesnippets.write_file(CS_list, "{0}_CS".format(clstrfile))
+codesnippets.write_file(MS_list, "{0}_MS".format(clstrfile))
 
 print "CMS:" "" + str(len(CMS_list))
 print "CM:" "" + str(len(CM_list))

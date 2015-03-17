@@ -3,7 +3,7 @@
 # Input: #cluser id    #member1....#memberN
 # usage: python cdhit-clstr_countbyID.py xxxCluster.stat
 # output: #clusterid #Count of RefID #Count of Org_ID
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # Date: 10022015
 """
 import sys

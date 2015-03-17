@@ -2,7 +2,7 @@
 # parse cd-hite cluster file into the following format
     # #cluser id    #member1....#memberN
 # usage: python cdhit-clstr_parser.py .clstr
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # Date: 03022015
 """
 import sys

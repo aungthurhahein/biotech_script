@@ -2,7 +2,7 @@
 """
 #--------------------------------------------------------------------------#
 # mapping annotation file with miratrinity_cdhit
-# __author__ = 'atrx'
+# __author__ = 'Aung ေအာင်သူရဟိန်း'
 # usage: annot_miratrinity_map.py annotation.txt MiraTrinity_Member_all.txt
 # Date: 14012015
 #--------------------------------------------------------------------------#

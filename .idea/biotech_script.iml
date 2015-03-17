@@ -8,5 +8,9 @@
     <orderEntry type="module" module-name="rssparser" />
     <orderEntry type="module" module-name="github-repos" />
     <orderEntry type="module" module-name="volatility-plugins-master" />
+    <orderEntry type="module" module-name="pomodoro_python" />
+    <orderEntry type="module" module-name="Simple-Terminal-RSS-reader" />
+    <orderEntry type="module" module-name="Simple-Programming-Exercise" />
+    <orderEntry type="module" module-name="Resume" />
   </component>
 </module>

@@ -4,7 +4,7 @@
 # To cut out fasta sequence with longer than xxx bp
 # Usage
 # $ fasta_cut_length.py xxx.fasta length(int)
-# Dev: Aung
+# Dev: Aung ေအာင်သူရဟိန်း
 # Date: 05012015
 #-------------------------------------------------------------------------#
 """

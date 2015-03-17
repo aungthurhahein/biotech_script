@@ -1,6 +1,6 @@
 """
 draw a box plot from list of sequence length
-__author__ = 'aung'
+__author__ = 'Aung ေအာင်သူရဟိန်း'
 Date: 24022015
 """
 import numpy as np

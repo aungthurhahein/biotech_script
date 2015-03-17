@@ -4,13 +4,13 @@
 #To rename MIRA and Trinity output to trinity.fasta format
 #Usage
 # $ MIRACAP_Rename_Trinity.py -s xxx.fasta -q xxx.fasta.qual
-#Output: xxx.fasta_2Trinity.fasta,xxx.fasta_2Trinity.fasta.qual
-#Dev: Aung
+#Output: xxx.fasta_2Trinity.fasta, xxx.fasta_2Trinity.fasta.qual
+#Dev: Aung ေအာင်သူရဟိန်း
 #Date: 22122014
 #-------------------------------------------------------------------------#
 """
 import argparse
-import os, os.path
+import os,os.path
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
@@ -47,31 +47,30 @@ def main(seq, qual):
     except:
         p.Print("quality file not given...")
         exit(0)
-    f1 = open("idmap.txt", 'w')
+
+    f1 = open(seqfile+"idmap.txt", 'w')
     C = 0
-    I = 0
     final_records = []
+
     # sequence file change
     for seq_record in SeqIO.parse(seqfile, "fasta"):
-        clstr_trinity = "c{0}_g{1}_i1 len={2}".format(C, I,str(len(seq_record.seq)) + "\t" + str(seq_record.id.strip()) + "\n")
+        trinity_id = "c{0}_g1_i1 len={2}".format(C, str(len(seq_record.seq)))
+        clstr_trinity = trinity_id + "\t" + str(seq_record.id.strip()) + "\n"
         f1.write(clstr_trinity)
-        header = "c{0}_g{1}_i1".format(C, I)
-        C += 1
-        I += 1
+        header = "c{0}_g1_i1".format(C)
         desc = str("len={0}".format(len(seq_record.seq)))
+        C += 1
         record = SeqRecord(seq_record.seq, id=header, description=desc)
         final_records.append(record)
-    # write to to file
     SeqIO.write(final_records, "{0}_2Trinity.fasta".format(seq), "fasta")
+
     A = 0
-    B = 0
     # modify the same pattern for qualfile
-    qualout = open("{0}_2Trinity.fasta.qual".format(seq), "w")  #
+    qualout = open("{0}_2Trinity.fasta.qual".format(seq), "w")
     for line in qualfile:
         if ">" in line:
-            header = "c{0}_g{1}_i1".format(A, B)
+            header = "c{0}_g1_i1".format(A)
             A += 1
-            B += 1
             qualout.write("%s\n" % header)
         else:
             qualout.write(line)

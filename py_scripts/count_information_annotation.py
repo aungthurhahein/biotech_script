@@ -1,10 +1,12 @@
 #! /usr/bin/env python
+"""
 # --------------------------------------------------------------------------#
 # count information
 # Date: 9012015
 # Usage: annotataion_map.py
-# __author__ = 'atrx'
+# __author__ = 'Aung ေအာင်သူရဟိန်း'
 #--------------------------------------------------------------------------#
+"""
 import sys
 import linecache
 

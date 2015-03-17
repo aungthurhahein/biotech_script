@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-__author__ = 'aung'
+__author__ = 'Aung ေအာင်သူရဟိန်း'
 import sys
 file1 = sys.argv[1]
 file1_read = open(file1,'r')
