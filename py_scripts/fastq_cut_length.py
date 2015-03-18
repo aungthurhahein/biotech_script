@@ -4,7 +4,7 @@
 # To cut out fastq sequence with longer than xxx bp
 # Usage
 # $ fastq_cut_length.py xxx.fasta length(int)
-# Dev: Aung ေအာင်သူရဟိန်း
+# Dev: Aung
 # Date: 05012015
 #-------------------------------------------------------------------------#
 """

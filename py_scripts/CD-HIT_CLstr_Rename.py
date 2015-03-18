@@ -4,7 +4,7 @@
 #To rename cdhit cluster to have trinity output format
 #Usage
 # $ cd_hit_clstr_stat.py -c xxx.clstr -s cdhit_out.fasta -a assembly_ID -i AsTranID
-#Dev: Aung ေအာင်သူရဟိန်း
+#Dev: Aung
 """
 import argparse
 import os

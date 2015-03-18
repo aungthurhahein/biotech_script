@@ -1,4 +1,4 @@
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 
 # enumerate file into list
 def file_read(file_handle):

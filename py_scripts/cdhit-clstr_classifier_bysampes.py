@@ -5,7 +5,7 @@
 # Input: #cluser id    #member1....#memberN
 # usage: python cdhit-clstr_classifer_bysamples.py xxxCluster.stat.parse
 # output: 5 files are written at line 45
-# Dev: Aung ေအာင်သူရဟိန်း
+# Dev: Aung
 # Date: 10032015
 """
 

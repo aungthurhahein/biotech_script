@@ -1,4 +1,4 @@
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 file1 = "/home/aung/server_downloads/c01_MIRA_CDHIT/mira_org_trinity.txt"
 file_read = open(file1, 'r')
 id_map = []

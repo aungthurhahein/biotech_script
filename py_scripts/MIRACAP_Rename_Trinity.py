@@ -5,7 +5,7 @@
 #Usage
 # $ MIRACAP_Rename_Trinity.py -s xxx.fasta -q xxx.fasta.qual
 #Output: xxx.fasta_2Trinity.fasta, xxx.fasta_2Trinity.fasta.qual
-#Dev: Aung ေအာင်သူရဟိန်း
+#Dev: Aung
 #Date: 22122014
 #-------------------------------------------------------------------------#
 """

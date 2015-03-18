@@ -1,4 +1,4 @@
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 
 # enumerate file into list
 def file_read(file_handle):
@@ -7,7 +7,7 @@ def file_read(file_handle):
         temp_list.append(line.strip())
     return temp_list
 
-clstrfile = "/home/Aung ေအာင်သူရဟိန်း/server_downloads/allpool/by_division/inv_division/inv_cd-hit-est_#2_bykeywords"
+clstrfile = "/home/Aung/server_downloads/allpool/by_division/inv_division/inv_cd-hit-est_#2_bykeywords"
 clstr_open = open(clstrfile,'r')
 clstr_list = file_read(clstr_open)
 equal_clstr_file = open(clstrfile+"_equal",'w')

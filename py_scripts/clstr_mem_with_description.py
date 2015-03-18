@@ -1,7 +1,7 @@
 
 # ~/github_repos/biotech_script$ sudo python py_scripts/clstr_mem_with_description.py ~aung/server_downloads/allpool/by_division/inv_division/cdhit_bygroup/inv_cd-hit-est_#1_bykeywords_equal_analyze ~aung/server_downloads/allpool/by_division/inv_division/inv_div_lin#1.clstr.parse2 ~aung/server_downloads/allpool/by_division/inv_division/inv_div.txt > ~aung/server_downloads/allpool/by_division/inv_division/cdhit_bygroup/inv_cd-hit-est_#1_bykeywords_equal_analyze_result
 
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 import sys
 # enumerate file into list
 def file_read(file_handle):

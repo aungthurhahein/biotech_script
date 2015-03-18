@@ -1,7 +1,7 @@
 """
 # get max/min seq length from fasta file
 """
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 import sys
 from Bio import SeqIO
 

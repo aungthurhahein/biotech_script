@@ -2,7 +2,7 @@
 """
 fastq to fasta and quality scores file converter
 Usage: python fastq_to_fasta.py reads.fastq reads.fasta reads.qual
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 Date:11022015
 """
 import sys

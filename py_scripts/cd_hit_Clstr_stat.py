@@ -4,7 +4,7 @@
 #To retrive cluster distribution of cd-hit output .clsr file
 #Usage
 # $ cd_hit_clstr_stat.py xxx.clstr
-#Dev: Aung ေအာင်သူရဟိန်း
+#Dev: Aung
 #Time: 22/10/2014
 #-------------------------------------------------------------------------#
 """

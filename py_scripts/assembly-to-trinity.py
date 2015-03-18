@@ -1,46 +1,33 @@
 #!/usr/bin/env python
 """
-# To rename cdhit cluster to have trinity output format
+# To rename assembly(MIRA,CAP3,CDHIT) output to Trinity.fasta format(c#_g#_i#)
 # Usage
-# $ cd_hit_to_trinity.py -s cdhit_out.fasta cdhit_out2.fasta -a assembly_ID -i AsTranID
+# $ assembly_to_trinity.py -s assembly_out.fasta assembly_out2.fasta -a assembly_ID -i AsTranID
 # Output: output files are splitted according to input files but already concatenated technically
-# Dev: Aung ေအာင်သူရဟိန်း
+# Dev: Aung
 # Date: 17032015
 """
+
 import argparse
-import os
-import os.path
 from Bio import SeqIO
 
 def parse_command_line():
-    parser = argparse.ArgumentParser('parse cd-hit fasta files and rename the output to Trinity.fasta format file')
+    parser = argparse.ArgumentParser('parse assembly fasta files and '
+                                     'rename the sequence header to Trinity.fasta format file')
     parser.add_argument('-s', '--sequence', nargs='+', required=True,
-                        help="cd-hit output related sequence file(s)")
+                        help="assembly output sequence file(s)")
     parser.add_argument('-a', '--assemblyid', type=str, required=True,
-                        help="Assembly ID for ID mapping table (id1,id2)")
+                        help="Assembly ID for ID mapping table (id1,id2..)")
     parser.add_argument('-i', '--astranid', type=str, required=True,
                         help="AsTran ID for ID mapping table (assemblyid_platform_species_date)")
     theArgs = parser.parse_args()
     return theArgs
 
-
-def validate_file_read(thefile):
-    # Validate the path is a valid
-    if not os.path.exists(thefile):
-        raise argparse.ArgumentTypeError('File does not exist')
-
-    # Validate the path is readable
-    if os.access(thefile, os.R_OK):
-        return thefile
-    else:
-        raise argparse.ArgumentTypeError('File is not readable')
-
-
 def main(sequence, assemblyid, astranid):
     assemblyid_split = assemblyid.split(',')
     astran_count = 0
     for x, f in enumerate(sequence):
-        f1 = open(f + "_clstrtrinitymap.txt", 'w')
+        f1 = open(f + "_id_map.txt", 'w')
         f2 = open(f + "_trinity_fmt.fasta", 'w')
         for seq_record in SeqIO.parse(f, "fasta"):
             trinity_id = ">c{0}_g1_i1 len={1}".format(astran_count, len(seq_record.seq))

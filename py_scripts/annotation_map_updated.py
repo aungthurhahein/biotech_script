@@ -4,7 +4,7 @@
 # mapp annotataion text file with sample specific text file
 # Date: 9012015
 # Usage: annotataion_map.py annotation.txt DE_Specific.tsv
-# __author__ = 'Aung ေအာင်သူရဟိန်း'
+# __author__ = 'Aung'
 #--------------------------------------------------------------------------#
 """
 import sys

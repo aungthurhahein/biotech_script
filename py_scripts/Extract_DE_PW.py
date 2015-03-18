@@ -1,7 +1,7 @@
 """
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 # get DE sample specific features form pairwise comparison
-# Dev: Aung ေအာင်သူရဟိန်း
+# Dev: Aung
 # Date: 05032015
 """
 import sys

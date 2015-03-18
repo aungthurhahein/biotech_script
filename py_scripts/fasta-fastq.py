@@ -2,7 +2,7 @@
 """
 fasta(w qual) to fastq converter
 Usage: python fasta_to_fastq.py reads.fasta reads.qual reads.fastq
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 Date:12022015
 """
 

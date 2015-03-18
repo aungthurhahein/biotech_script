@@ -4,7 +4,7 @@
 # count information
 # Date: 9012015
 # Usage: annotataion_map.py
-# __author__ = 'Aung ေအာင်သူရဟိန်း'
+# __author__ = 'Aung'
 #--------------------------------------------------------------------------#
 """
 import sys

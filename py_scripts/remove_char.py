@@ -1,4 +1,4 @@
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 import sys
 
 file = "/home/aung/server_downloads/c01_split/Member_T.txt"

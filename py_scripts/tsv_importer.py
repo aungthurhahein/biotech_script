@@ -5,7 +5,7 @@
 #Usage
 # $ python tsv_importer.py dbname tablename filename
 # For table creation,it is required to change the variable,createtable
-#Dev: Aung ေအာင်သူရဟိန်း
+#Dev: Aung
 #Time:17/10/2014
 #-------------------------------------------------------------------------#
 """
