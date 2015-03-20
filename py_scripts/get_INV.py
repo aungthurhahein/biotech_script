@@ -3,7 +3,7 @@ __author__ = 'Aung'
 import sys
 file1 = sys.argv[1]
 file1_read = open(file1,'r')
-outputfile = open(file1+"_uniqueseqID.txt",'w')
+outputfile = open(file1+"_uniqueseqID.txt", 'w')
 file1_list=[]
 final_list=[]
 seq_list=[]

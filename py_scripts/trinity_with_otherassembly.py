@@ -23,17 +23,19 @@ def parse_command_line():
     return theArgs
 
 
-def main(sequence,assemblyid, astranid):
+def main(sequence, assemblyid, astranid):
     assemblyid_split = assemblyid.split(',')
-    astran_count = 0
+    astranid_split = astranid.split(',')
     no_of_files = len(sequence)
     print "Input files:" + str(no_of_files)
 
     f1 = open(sequence[0] + "_id_map.txt", 'w')
     f2 = open(sequence[0] + "_trinity_fmt.fasta", 'w')
+
+    astran_count = 0
     # first file read
     for seq_record in SeqIO.parse(sequence[0], "fasta"):
-        new_custom_id = "{0}_{1}".format(astranid, str(astran_count).zfill(5))
+        new_custom_id = "{0}_{1}".format(astranid_split[0], str(astran_count).zfill(5))
         trinity_id = ">" + seq_record.description
         clstr_trinity = trinity_id + "\t" + seq_record.id + "\t" + new_custom_id + "\t" + assemblyid_split[0] + "\n"
         f1.write(clstr_trinity)
@@ -43,16 +45,22 @@ def main(sequence,assemblyid, astranid):
     f1.close
     f2.close
 
+    # get next cluster id
+    last_trinity_id = trinity_id.split()[0].split('_')[0].split('>')[1].split('c')[1]
+    next_id = int(last_trinity_id) + 1
+
     # from second file to last
     for x, f in enumerate(sequence[1:]):
         f1 = open(f + "_id_map.txt", 'w')
         f2 = open(f + "_trinity_fmt.fasta", 'w')
+        astran_count = 0
         for seq_record in SeqIO.parse(f, "fasta"):
-            trinity_id = ">c{0}_g1_i1 len={1}".format(astran_count, len(seq_record.seq))
-            new_custom_id = "{0}_{1}".format(astranid, str(astran_count).zfill(5))
+            trinity_id = ">c{0}_g1_i1 len={1}".format(next_id, len(seq_record.seq))
+            new_custom_id = "{0}_{1}".format(astranid_split[x+1], str(astran_count).zfill(5))
             clstr_trinity = trinity_id + "\t" + seq_record.id + "\t" + new_custom_id + "\t" + assemblyid_split[x+1] + "\n"
             f1.write(clstr_trinity)
             astran_count += 1
+            next_id += 1
             f2.write(trinity_id + '\n')
             f2.write(str(seq_record.seq) + '\n')
         f1.close

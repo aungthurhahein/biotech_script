@@ -2,7 +2,7 @@
 x#! /bin/bash
 #-----------------------------------------------------#
 # get unmapped reads from bam files
-# Dev: Aung ေအာင်သူရဟိန်း
+# Dev: Aung
 # 18122014
 # usage: get_unmapped_bam.sh sample.fastq bowtie2.bam
 # output: 

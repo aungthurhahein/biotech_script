@@ -1,6 +1,6 @@
 """"
 # listen news from npr thourgh terminal
-__author__ = 'Aung ေအာင်သူရဟိန်း'
+__author__ = 'Aung'
 """"
 import system
 import os
