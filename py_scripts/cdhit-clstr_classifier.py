@@ -57,3 +57,4 @@ print "Singleton Refid: " + str(len(Set1_Singleton))
 # only original reads
 print "Multiple orgid: " + str(len(Set2_Multi))
 print "Singleton orgid: " + str(len(Set2_Singleton))
+

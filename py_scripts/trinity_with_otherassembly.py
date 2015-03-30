@@ -22,8 +22,22 @@ def parse_command_line():
     theArgs = parser.parse_args()
     return theArgs
 
+def validate_astranid(str_obj, assemblyid):
+    str_obj_split = str_obj.split(',')
+    assemblyid_split = assemblyid.split(',')
+    for x, astran_id in enumerate(str_obj_split):
+        astran_split = astran_id.split('_')
+        if len(astran_split) == 1:
+            print "Invalid astronid! please check astraid format(taxon_assemblyid)"
+            exit(1)
+        if assemblyid_split[x].strip() == astran_split[1].strip():
+            continue
+        else:
+            print "Assembly_ID should be part of AstranID. Check inputs again."
+            exit(0)
 
 def main(sequence, assemblyid, astranid):
+    validate_astranid(astranid, assemblyid)
     assemblyid_split = assemblyid.split(',')
     astranid_split = astranid.split(',')
     no_of_files = len(sequence)

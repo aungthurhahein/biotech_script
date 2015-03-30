@@ -32,3 +32,4 @@ for seq_id in seq_id_file:
         print seq_id
         final_records.append(fasta_content.get(seq_id))
 SeqIO.write(final_records, "{0}.fasta".format(seqid), "fasta")
+

@@ -15,3 +15,4 @@ for seq_record in SeqIO.parse(fasta_file, "fasta"):
 
 print "Max length:", max(length)
 print "Min length:", min(length)
+
