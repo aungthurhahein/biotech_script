@@ -10,18 +10,6 @@
 import sys
 import codesnippets
 
-# control_id = sys.argv[1]  # control
-# mature_id = sys.argv[2]  # mature
-# survival_id = sys.argv[3]  # survival
-# mapped_ref_id = sys.argv[4]  # mapped ref
-# unmapped_ref_id = sys.argv[5]  # unmapped ref
-
-# control_list = codesnippets.file_read_line(control_id)
-# mature_list = codesnippets.file_read_line(mature_id)
-# survival_list = codesnippets.file_read_line(survival_id)
-# mapped_ref_list = codesnippets.file_read_line(mapped_ref_id)
-# unmapped_ref_list = codesnippets.file_read_line(unmapped_ref_id)
-
 two_cdhit_clst = sys.argv[1]
 clst_group = sys.argv[2]  # clusters
 
@@ -51,11 +39,9 @@ for cluster in clst_group_list:
                 else:
                     if member not in new_expand_clst:
                         new_expand_clst.append(member)
+    print new_expand_clst
     clstr_expand.append(new_expand_clst)
-
 for x in clstr_expand:
     print x
-# enumerate and get number of sequences
-
 
 

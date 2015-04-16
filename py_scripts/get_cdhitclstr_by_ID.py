@@ -14,10 +14,12 @@ clstrfile = sys.argv[1]
 fastafile = sys.argv[2]
 clstrid = sys.argv[3]
 clstrfile_read = open(clstrfile, 'r')
+# clstrid_read = open(clstrid, 'r') #by file
 clstr_list = []
 clstr_id = []
 
 clstr_list = codesnippets.file_read_line(clstrfile_read)
+# clstr_id = codesnippets.file_read_line(clstrid_read) # by file
 clstr_id = clstrid.split(',')
 
 for clstrid in clstr_id:

@@ -11,7 +11,7 @@ import codesnippets
 
 type1_id = sys.argv[1]  # unmapped refid
 type2_id = sys.argv[2]  # cdhit representative id
-cluster_file = sys.argv[3] #cluster files
+cluster_file = sys.argv[3]  # cluster file
 open_t1id = open(type1_id, 'r')
 open_t2id = open(type2_id, 'r')
 open_cluster = open(cluster_file, 'r')
@@ -70,3 +70,4 @@ codesnippets.write_file(S12, "{0}_S12".format(cluster_file))
 codesnippets.write_file(G1, "{0}_G2".format(cluster_file))
 codesnippets.write_file(S21, "{0}_S21".format(cluster_file))
 codesnippets.write_file(S22, "{0}_S22".format(cluster_file))
+
