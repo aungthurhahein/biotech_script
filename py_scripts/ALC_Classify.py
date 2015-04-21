@@ -59,7 +59,6 @@ for x in clst_list:
         idA_count = 0
         idL_count = 0
         idC_count = 0
-        print x_split[0], id_flag,idA_count,idL_count,idC_coun
         for x_count, mem in enumerate(x_split):
             if mem.strip() in A_id_list:  # in A
                 id_flag[x_count] = "*"
@@ -76,7 +75,6 @@ for x in clst_list:
             elif y == "&":
                 idC_count += 1
 
-        print x_split[0], id_flag,idA_count,idL_count,idC_count
         if idA_count >= 1 and idL_count >= 1 and idC_count >= 1:  # G3
             G3.append(x)
         elif idA_count >= 1 and idL_count >= 1 and idC_count == 0:  # G2AL

@@ -22,8 +22,7 @@ seq_id_file = []
 fasta_content={}
 
 for id in seqid_read:
-    # id1 = id.split('@')
-    seq_id_file.append('gpatNuclV3-'+id.strip())
+    seq_id_file.append(id.strip())
 
 for seq_record in SeqIO.parse(fastafile, "fasta"):
     fasta_content[seq_record.id.strip()] = seq_record
@@ -32,4 +31,5 @@ for seq_id in seq_id_file:
         print seq_id
         final_records.append(fasta_content.get(seq_id))
 SeqIO.write(final_records, "{0}.fasta".format(seqid), "fasta")
+
 
