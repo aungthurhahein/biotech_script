@@ -6,7 +6,8 @@
 # output: 
 # Dev: __author__ = 'aung' 
 # Date:
-python ../cluster_identify.py ../ids_cdhit/HC_uniquemappedRef.txt.uniq ../ids_cdhit/HC_unmappedRefID.txt.uniq ../ids_cdhit/HC_unmappedLibID.txt.uniq
+python ../cluster_identify.py ../He.mappedRef.id ../He_unmappedRef.id ../He_unmmapedLib.id e01pv_HE_out.clstr.parse2
+
 
 """
 import sys
