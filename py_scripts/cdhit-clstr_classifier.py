@@ -26,8 +26,8 @@ for x in cluster_list:
     x_split = x.split('\t')
     # multi
     if len(x_split) > 2:
-        ref_id = re.search(r'>c\w+', x)  # fixed for cd-hit output
-        org_id = re.search(r'>IJWSV\|\w+', x)  # it needs to be modified according to input header
+        ref_id = re.search(r'>PV_ATM01\w+', x)  # ATM
+        org_id = re.search(r'>PV_ATM02\w+', x)  # NonATM
         if ref_id and org_id:
             both_side.append(x)
         elif ref_id:
@@ -38,8 +38,8 @@ for x in cluster_list:
             print x
     # singleton
     else:
-        ref_id = re.search(r'>c\w+', x_split[1])  # fixed for cd-hit output
-        org_id = re.search(r'>IIJWSV\|\w+', x_split[1])  # it needs to be modified according to input header
+        ref_id = re.search(r'>PV_ATM01\w+', x_split[1])  # ATM
+        org_id = re.search(r'>PV_ATM02\w+', x_split[1])  # NonATM
         if ref_id:
             Set1_Singleton.append(x)
         elif org_id:

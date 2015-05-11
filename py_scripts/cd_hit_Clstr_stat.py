@@ -90,7 +90,8 @@ def main(input):
             count8 += 1
     print""
     print"Summary statistics"
-    print "Member without similar sequences:\t", count1
+    print "Singletons:\t", count1
+    print "Multi-Clusters:\t", (count2+count3+count4+count5+count6+count7+count8)
     print "1>Member<5\t", count2
     print "5=>Member<10\t", count3
     print "10=>Member<20\t", count4

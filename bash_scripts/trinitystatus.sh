@@ -1,4 +1,4 @@
-#!/bin/bash
+.i.#!/bin/bash
 #loop the files and get trinity.fasta status
 for f in  *.fasta
 do

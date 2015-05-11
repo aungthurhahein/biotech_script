@@ -14,23 +14,28 @@ clstrfile = sys.argv[1]
 fastafile = sys.argv[2]
 clstrid = sys.argv[3]
 clstrfile_read = open(clstrfile, 'r')
-# clstrid_read = open(clstrid, 'r') #by file
+clstrid_read = open(clstrid, 'r') # by file
 clstr_list = []
 clstr_id = []
+org_seqid = []
+org_sequence = []
 
 clstr_list = codesnippets.file_read_line(clstrfile_read)
-# clstr_id = codesnippets.file_read_line(clstrid_read) # by file
-clstr_id = clstrid.split(',')
+clstr_id = codesnippets.file_read_line(clstrid_read) # by file
 
+# clstr_id = clstrid.split(',')
+for seq_record in SeqIO.parse(fastafile, "fasta"):
+    org_seqid.append(seq_record.id.strip())
+    org_sequence.append(seq_record.seq.strip())
 for clstrid in clstr_id:
-    clstrid = ">Cluster {0}".format(clstrid)
+    # clstrid = ">Cluster {0}".format(clstrid) #not necessary for ID file input
     for x in clstr_list:
         x_split = x.split('\t')
         if clstrid.strip() == x_split[0].strip():
             for clst_mem in x_split[1:]:
-                for seq_record in SeqIO.parse(fastafile, "fasta"):
-                    if seq_record.id.strip() == clst_mem.strip('>').strip():
-                        print ">" + seq_record.id
-                        print seq_record.seq
+                if clst_mem.strip('>').strip() in org_seqid:
+                        ind = org_seqid.index(clst_mem.strip('>').strip())
+                        print ">" + org_seqid[ind]
+                        print org_sequence[ind]
 
 
