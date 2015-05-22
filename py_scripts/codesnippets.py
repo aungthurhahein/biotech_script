@@ -1,15 +1,16 @@
 # ---------------------------------------------------------#
 __author__ = 'Aung'
 # ---------------------------------------------------------#
-import MySQLdb
+# import MySQLdb
 
 """
 # file read/write
 """
 # read file by line and return each lines as a list item
 def file_read_line(fileinput):
+    f1 = open(fileinput, 'r')
     file_list = []
-    for line in fileinput:
+    for line in f1:
         file_list.append(line.strip())
     return file_list
 
@@ -67,44 +68,44 @@ def sorted_list(list):
     return sorted(list)
 
 
-"""
-#  mysql functions for local connection
-"""
-# create table
-def create_table(dbname, querystring):
-    db = MySQLdb.connect(host="127.0.0.1",
-                         user="root",
-                         passwd="",
-                         db=dbname,
-                         unix_socket="/opt/lampp/var/mysql/mysql.sock")
-    cur = db.open
-    cur.execute(querystring)
-    cur.close
-    db.close
-
-
-#  select all columns form a specific table
-def select_table(dbname, tablename):
-    db = MySQLdb.connect(host="127.0.0.1",
-                         user="root",
-                         passwd="",
-                         db=dbname,
-                         unix_socket="/opt/lampp/var/mysql/mysql.sock")
-    cur = db.open
-    cur.execute("Select * from %s" % tablename)
-    cur.close
-    db.close
-
-
-def insert_table(dbname, tablename, list, query):
-    for i in list:
-        db = MySQLdb.connect(host="127.0.0.1",
-                             user="root",
-                             passwd="",
-                             db=dbname,
-                             unix_socket="/opt/lampp/var/mysql/mysql.sock")
-        cur = db.open
-        # cur.execute(query, % )
-        cur.close
-        db.close
-
+# """
+# #  mysql functions for local connection
+# """
+# # create table
+# def create_table(dbname, querystring):
+#     db = MySQLdb.connect(host="127.0.0.1",
+#                          user="root",
+#                          passwd="",
+#                          db=dbname,
+#                          unix_socket="/opt/lampp/var/mysql/mysql.sock")
+#     cur = db.open
+#     cur.execute(querystring)
+#     cur.close
+#     db.close
+#
+#
+# #  select all columns form a specific table
+# def select_table(dbname, tablename):
+#     db = MySQLdb.connect(host="127.0.0.1",
+#                          user="root",
+#                          passwd="",
+#                          db=dbname,
+#                          unix_socket="/opt/lampp/var/mysql/mysql.sock")
+#     cur = db.open
+#     cur.execute("Select * from %s" % tablename)
+#     cur.close
+#     db.close
+#
+#
+# def insert_table(dbname, tablename, list, query):
+#     for i in list:
+#         db = MySQLdb.connect(host="127.0.0.1",
+#                              user="root",
+#                              passwd="",
+#                              db=dbname,
+#                              unix_socket="/opt/lampp/var/mysql/mysql.sock")
+#         cur = db.open
+#         # cur.execute(query, % )
+#         cur.close
+#         db.close
+#
