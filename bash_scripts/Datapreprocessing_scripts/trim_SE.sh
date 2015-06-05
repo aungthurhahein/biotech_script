@@ -1,5 +1,5 @@
 #!/bin/bash
-working_dict="/mnt/nfs/media/new_SRA_datasets_05032015/fastq_files/illumina/SE"
+working_dict=${PWD}
 for f in  *.fastq
 do
         touch "$f"_1.fq

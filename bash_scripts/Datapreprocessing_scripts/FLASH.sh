@@ -1,5 +1,5 @@
 #!/bin/bash
-working_dict="/mnt/nfs/media/new_SRA_datasets_05032015/fastq_files/illumina/PE/trimmed_reads"
+working_dict=${PWD}
 flash_dir="/home/aung/software/FLASH-1.2.7"
 
 for f in  *_1.fq

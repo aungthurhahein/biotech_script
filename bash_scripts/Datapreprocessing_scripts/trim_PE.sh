@@ -1,5 +1,5 @@
 #! /bin/bash
-working_dict="/mnt/nfs/media/new_SRA_datasets_05032015/fastq_files/illumina/PE"
+working_dict=${PWD}
 # create empty files for trimmomatic output
 for f in  *.fastq
 do
