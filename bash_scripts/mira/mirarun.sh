@@ -12,7 +12,7 @@
 #$ -pe mpich 4
 # for mutli-thread(parallel) jobs, openmpi(64 processors)
 #$ -pe openmpi 64
-mira_dir="/fs/home/card/mira_4.0.2_linux-gnu_x86_64_static/bin/mira"
+mira_dir="/fs/home/card/software/mira_4.0.2_linux-gnu_x86_64_static/bin/mira"
 
 $mira_dir manifest.txt
 
