@@ -13,7 +13,8 @@
 
 . /fs/home/card/.bashrc
 . /fs/home/card/.bash_profile
-cdhit_home="/fs/home/card/software/cd-hit-v4.6.1-2012-08-27"
+cdhit_home="/fs/home/card/software/cd-hit-v4.6.1-2012-08-27"  #eclipse
+#cdhit_home="/colossus/home/anuphap/software/cd-hit-v4.6.1-2012-08-27" #colossus
 input_base="/fs/home/card/Aung/PCHUM-RT/stepC/"
 
 for i in *.gb.fasta

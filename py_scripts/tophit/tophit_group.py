@@ -60,6 +60,7 @@ def check_cat(str_obj):
     #F
     Environmental = re.search(r'[\w+\s+]*environmental[\w+\s+]*', str_obj.lower())
     Synthetic = re.search(r'[\w+\s+]*synthetic[\w+\s+]*', str_obj.lower())
+
     if group_I1:
         return "I1"
     elif group_I2:
