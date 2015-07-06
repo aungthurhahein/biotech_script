@@ -56,21 +56,4 @@ for y, divid in enumerate(div_id):
         elif div_group[y] == 'F':
             fF.write(tmp)
 
-# for x, mapid in enumerate(map_id):
-#     if mapid in div_id:
-#         ind = div_id.index(mapid)
-#         tmp = map_list[x]+'\t'+div_group[ind].strip()+'\n'
-#         print tmp
-#         if div_group[ind] == 'A':
-#             fA.write(tmp)
-#         elif div_group[ind] == 'B':
-#             fB.write(tmp)
-#         elif div_group[ind] == 'C':
-#             fC.write(tmp)
-#         elif div_group[ind] == 'D':
-#             fD.write(tmp)
-#         elif div_group[ind] == 'E':
-#             fE.write(tmp)
-#         elif div_group[ind] == 'F':
-#             fF.write(tmp)
 

@@ -18,14 +18,14 @@ open_map = open(map_file, 'r')
 o = open(org_fasta+"_astranid.fasta", 'w')
 
 for seq_record in SeqIO.parse(org_fasta, "fasta"):
-    org_id.append(str(seq_record.id))
+    org_id.append(str(seq_record.id).strip())
     org_sequence.append(str(seq_record.seq))
 
 trinity_id = []
 astran_id = []
 for line in open_map:
     line_split = line.split('\t')
-    trinity_id.append(line_split[0].strip().strip('>').split()[0])
+    trinity_id.append(line_split[0].strip().strip('>').split()[0].strip())
     astran_id.append(line_split[2].strip())
 
 for x, trid in enumerate(trinity_id):

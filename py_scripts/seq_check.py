@@ -31,19 +31,3 @@ for x, seq in enumerate(org_sequence):
         print org_id[x], check_id[x]
     else:
         f.write(org_id[x]+'\n')
-
-#
-# for line in openmap:
-#     line_spllit = line.split('\t')
-#     trinity_id.append(line_spllit[0].strip())
-#     astran_id.append(line_spllit[1].strip())
-# count = 0
-# for hasan in opencheck:
-#     idcheck = hasan.strip('>').strip()
-#     if idcheck in astran_id:
-#         count += 1
-#         astran_id.remove(idcheck)
-#     else:
-#         print idcheck
-#
-# print count

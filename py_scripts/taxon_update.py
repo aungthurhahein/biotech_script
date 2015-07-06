@@ -14,10 +14,12 @@ newtaxon = sys.argv[2]
 
 old_id = []
 old_record = []
+div20 = []
 with open(oldtaxon, 'r') as f1:
     for line in f1:
         line_split = line.split('\t')
         old_id.append(line_split[0].strip())
+        div20.append(line_split[4].strip())
         old_record.append(line)
 
 new_id = []
@@ -26,12 +28,12 @@ with open(newtaxon, 'r') as f2:
     for line in f2:
         line_split = line.split('\t')
         new_id.append(line_split[0].strip())
-        new_record.append(line)
+        new_record.append(line.strip('\n'))
 
 for x, oid in enumerate(old_id):
     if oid in new_id:
         ind = new_id.index(oid)
-        sys.stdout.write(new_record[ind])
+        sys.stdout.write(new_record[ind]+"\t"+div20[x]+"\n")
     else:
         sys.stdout.write(old_record[x])
 

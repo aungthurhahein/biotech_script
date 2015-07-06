@@ -30,3 +30,4 @@ for clusterid in clst_group_list:
                         if x not in cluster_list:
                             cluster_list.append(x)
                 print cluster_split[0] + ',\t' + str(cluster_list[1:])
+

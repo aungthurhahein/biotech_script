@@ -15,6 +15,7 @@ open_infile = open(infile, 'r')
 
 f = open(infile+"_v2Cat", 'w')
 def check_cat(str_obj):
+
     # Invert
     group_I1 = re.search(r'[\w+\s+]*i1[\w+\s+]*', str_obj.lower())
     group_I2 = re.search(r'[\w+\s+]*i2[\w+\s+]*', str_obj.lower())
@@ -81,5 +82,6 @@ for line in open_infile:
     line_split = line.split('\t')
     cal = line_split[5].strip()
     res = check_cat(str(cal))
-    tmp = line.strip('\n') + '\t' + res + '\n'
+    line_split = line.strip('\n').split('\t')
+    tmp = line_split[0]+ '\t'+line_split[1]+ '\t'+line_split[2]+ '\t'+line_split[3]+ '\t'+line_split[4]+ '\t'+line_split[5]+ '\t' + res+ '\t' +line_split[6]+ '\n'
     f.write(tmp)

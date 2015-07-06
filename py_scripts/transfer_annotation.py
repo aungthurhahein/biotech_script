@@ -8,7 +8,7 @@
 import sys
 import re
 
-usage = "Usage %s cdhit.clstr annot.txt" % sys.argv[0]  #specific massage for no input
+usage = "Usage %s cdhit.clstr annot.txt" % sys.argv[0]  # specific massage for no input
 
 try:
     annnotation_file = sys.argv[1]
