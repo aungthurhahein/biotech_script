@@ -8,10 +8,10 @@ __author__ = 'Aung'
 """
 # read file by line and return each lines as a list item
 def file_read_line(fileinput):
-    f1 = open(fileinput, 'r')
     file_list = []
-    for line in f1:
-        file_list.append(line.strip())
+    with open(fileinput,'rb') as f1:
+        for line in f1:
+            file_list.append(line.strip())
     return file_list
 
 

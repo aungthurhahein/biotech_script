@@ -10,6 +10,7 @@ import sys
 import os
 from Bio import SeqIO
 from Bio.SeqIO.QualityIO import PairedFastaQualIterator
+
 # Get the shell arguments #
 fa_path = sys.argv[1]
 qa_path = sys.argv[2]

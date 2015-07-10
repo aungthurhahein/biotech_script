@@ -24,7 +24,7 @@ for x in cluster_list:
     if len(x_split) > 2:
         tmp_list = []
         for mem in x_split[1:]:
-            ref_id = re.search(r'>PV_ATM01\w+', mem)  # ATM
+            ref_id = re.search(r'>PV_ATM03\w+', mem)  # ATM
             if ref_id:
                 tmp_list.append('ATM')
         count = 0
@@ -35,9 +35,9 @@ for x in cluster_list:
             Set1_Multi.append(x)
     # singleton
     else:
-        ref_id = re.search(r'>PV_ATM01\w+', x_split[1])  # ATM
+        ref_id = re.search(r'>PV_ATM03\w+', x_split[1])  # ATM
         if ref_id:
             Set1_Singleton.append(x)
-codesnippets.write_file(Set1_Multi, "{0}_ATM_Multi".format(clstrfile))
-codesnippets.write_file(Set1_Singleton, "{0}_ATM_Singleton".format(clstrfile))
+codesnippets.write_file(Set1_Multi, "{0}_ATM02_Multi".format(clstrfile))
+codesnippets.write_file(Set1_Singleton, "{0}_ATM02_Singleton".format(clstrfile))
 

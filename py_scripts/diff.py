@@ -15,7 +15,3 @@ for x in read2:
     if x.strip() not in r1:
         print x.strip()
 
-
-
-
-
