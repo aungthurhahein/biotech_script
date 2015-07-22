@@ -16,7 +16,8 @@
 
 
 #sys env
-trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
+#trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
+trinotate_home="/fs/home/card/software/Trinotate-2.0.2" #trinoteate v.2.0.2
 working_dir=${PWD}
 
 #input
@@ -35,6 +36,7 @@ echo "#########################"
 # wget "ftp://ftp.broadinstitute.org/pub/Trinity/Trinotate_v2.0_RESOURCES/Trinotate.sprot_uniref90.20150131.boilerplate.sqlite.gz" -O Trinotate.sqlite.gz
 cp /fs/home/card/Aung/trinotate_req/Trinotate.sqlite.gz $working_dir
 gunzip Trinotate.sqlite.gz
+rm -rf Trinotate.sqlite.gz
 
 # B2:  Loading Transcript-protein
 echo "#########################"

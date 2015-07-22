@@ -4,7 +4,7 @@
 # to convert fasta file from trinity id to astranid id
 # usage:
 # output: stdout.save as fasta file
-# Dev: __author__ = 'aung' 
+# Dev: __author__ = 'aung'
 # Date: 07052015
 """
 import sys
@@ -33,6 +33,3 @@ for x, trid in enumerate(trinity_id):
         ind = org_id.index(trid)
         o.write(">" + astran_id[x] +"\n")
         o.write(org_sequence[ind] + "\n")
-        # print trid, astran_id[x]
-
-

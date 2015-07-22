@@ -4,25 +4,14 @@
 # 
 # usage:
 # output: 
-# Dev: __author__ = 'aung' 
+# Dev: __author__ = 'aung'
+
+
 # Date: 
 """
 import sys
 ifile = sys.argv[1]
 openfile = open(ifile, 'r')
-
-AI1CatX = 0
-AI2CatX = 0
-AI4CatX = 0
-AI7CatX = 0
-AI6CatX = 0
-AI8CatX = 0
-AUCatX = 0
-ACCatX = 0
-ADCatX = 0
-AECatX = 0
-AFCatX = 0
-AGCatX = 0
 
 BI1CatX = 0
 BI2CatX = 0
@@ -57,172 +46,123 @@ for line in openfile:
     # CatCQ = line_split[5]
     # CatQ = line_split[6].strip('\n')
 
-    # B
-    if CatX == '6B-I1':
+    NX = CatX.split('-')[1].strip('\n').strip('\t').strip()
+
+    # N
+    if NX == 'I1(N)':
         BI1CatX += 1
-    elif CatX == '6B-I2':
+    elif NX == 'I2(N)':
         BI2CatX += 1
-    elif CatX == '6B-I4':
+    elif NX == 'I4(N)':
         BI4CatX += 1
-    elif CatX == '6B-I7':
+    elif NX == 'I7(N)':
         BI7CatX += 1
-    elif CatX == '6B-I6':
+        print NX
+    elif NX == 'I6(N)':
         BI6CatX += 1
-    elif CatX == '6B-I8':
+    elif NX == 'I8(N)':
         BI8CatX += 1
-    elif CatX == '6B-U':
+    elif NX == 'U(N)':
         BUCatX += 1
-    elif CatX == '6B-C':
+    elif NX == 'C(N)':
         BCCatX += 1
-    elif CatX == '6B-D':
+    elif NX == 'D(N)':
         BDCatX += 1
-    elif CatX == '6B-E':
+    elif NX == 'E(N)':
         BECatX += 1
-    elif CatX == '6B-F':
+    elif NX == 'F(N)':
         BFCatX += 1
-    elif CatX == '6B-G':
+    elif NX == 'G(N)':
         BGCatX += 1
-
-    # C
-    if CatX == '6C-I1':
+    elif NX == 'I1(X)':
         CI1CatX += 1
-    elif CatX == '6C-I2':
+    elif NX == 'I2(X)':
         CI2CatX += 1
-    elif CatX == '6C-I4':
+    elif NX == 'I4(X)':
         CI4CatX += 1
-    elif CatX == '6C-I7':
+    elif NX == 'I7(X)':
         CI7CatX += 1
-    elif CatX == '6C-I6':
+    elif NX == 'I6(X)':
         CI6CatX += 1
-    elif CatX == '6C-I8':
+    elif NX == 'I8(X)':
         CI8CatX += 1
-    elif CatX == '6C-U':
+    elif NX == 'U(X)':
         CUCatX += 1
-    elif CatX == '6C-C':
+    elif NX == 'C(X)':
         CCCatX += 1
-    elif CatX == '6C-D':
+    elif NX == 'D(X)':
         CDCatX += 1
-    elif CatX == '6C-E':
+    elif NX == 'E(X)':
         CECatX += 1
-    elif CatX == '6C-F':
+    elif NX == 'F(X)':
         CFCatX += 1
-    elif CatX == '6C-G':
+    elif NX == 'G(X)':
         CGCatX += 1
-    
-    # A
-    if CatX == '6A-I1':
-        AI1CatX += 1
-    elif CatX == '6A-I2':
-        AI2CatX += 1
-    elif CatX == '6A-I4':
-        AI4CatX += 1
-    elif CatX == '6A-I7':
-        AI7CatX += 1
-    elif CatX == '6A-I6':
-        AI6CatX += 1
-    elif CatX == '6A-I8':
-        AI8CatX += 1
-    elif CatX == '6A-U':
-        AUCatX += 1
-    elif CatX == '6A-C':
-        ACCatX += 1
-    elif CatX == '6A-D':
-        ADCatX += 1
-    elif CatX == '6A-E':
-        AECatX += 1
-    elif CatX == '6A-F':
-        AFCatX += 1
-    elif CatX == '6A-G':
-        AGCatX += 1
+    # else:
+    #     print CatX.split('-')
 
-sys.stdout.write(str("6B"))
+sys.stdout.write(str("N"))
 sys.stdout.write('\t')
-sys.stdout.write(str("6C"))
-sys.stdout.write('\t')
-sys.stdout.write(str("6A"))
+sys.stdout.write(str("X"))
 sys.stdout.write('\n')
 
 
 sys.stdout.write(str(BI1CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI1CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI1CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BI2CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI2CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI2CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BI4CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI4CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI4CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BI7CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI7CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI7CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BI6CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI6CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI6CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BUCatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CUCatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AUCatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BI8CatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CI8CatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AI8CatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BCCatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CCCatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(ACCatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BDCatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CDCatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(ADCatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BECatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CECatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AECatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BFCatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CFCatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AFCatX))
 sys.stdout.write('\n')
 
 sys.stdout.write(str(BGCatX))
 sys.stdout.write('\t')
 sys.stdout.write(str(CGCatX))
-sys.stdout.write('\t')
-sys.stdout.write(str(AGCatX))
 sys.stdout.write('\n')

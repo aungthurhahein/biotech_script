@@ -13,14 +13,14 @@ catMap = sys.argv[1]
 queryid = []
 group = []
 species = []
-
+NX = []
 with open(catMap,'r') as f1:
     for line in f1:
         line_split = line.split('\t')
         queryid.append(line_split[0])
         group.append(line_split[1])
         species.append(line_split[5])
-
+        NX.append(line_split[2])
 unique_group = list(set(group))  # uniquify list and return as list
 unique_species = list(set(species))
 
@@ -36,7 +36,7 @@ for grp in unique_group:
                 tmp_str = ""
                 for final in species_ind:
                     if queryid[final] not in list(set(tmp_query)):
-                        tmp_query.append(queryid[final])
+                        tmp_query.append(queryid[final]+"-"+NX[final])
                 tmp_str += grp + "\t" + sp.strip('\n')+"\t"+str(len(tmp_query)) +"\t"
                 for pr in tmp_query:
                     tmp_str += pr+';'

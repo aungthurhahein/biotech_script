@@ -17,7 +17,8 @@
 #sys envvariables
 trinity_home="/share/apps/trinityrnaseq_r20140717"
 trinity_local="/fs/home/card/software/trinityrnaseq_r20140717"
-trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
+#trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
+trinotate_home="/fs/home/card/software/Trinotate-2.0.2" #trinoteate v.2.0.2
 transdecoder_home="/share/apps/trinityrnaseq_r20140717/trinity-plugins/transdecoder" #version 2.0
 # transdecoder_home="/fs/home/card/software/TransDecoder-2.0.1" #version 2.1
 hmmer_home="/fs/home/card/bin"
@@ -42,19 +43,18 @@ $transdecoder_home/TransDecoder -t $trinity_file
 echo "#########################"
 echo "A2:mapping genes and transcripts"
 echo "#########################"
-$trinity_local/util/support_scripts/get_Trinity_gene_to_trans_map.pl $trinity_file > $gene_trans_map
+$trinity_local/util/support_scripts/get_Trinity_gene_to_trans_map.pl $trinity_file > $gene_trans_ma
 
-
-#A3: BLAST
-echo "#########################"
-echo "A3:Running blastp and blastx"
-echo "#########################"
-# swissport
-blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastx.outfmt6
-blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastp.outfmt6
-
-blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastx.outfmt6
-blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastp.outfmt6
+##A3: BLAST
+#echo "#########################"
+#echo "A3:Running blastp and blastx"
+#echo "#########################"
+## swissport
+#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastx.outfmt6
+#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastp.outfmt6
+#
+#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastx.outfmt6
+#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastp.outfmt6
 
 #A4: HMMer
 echo "A4:#########################"
@@ -79,7 +79,6 @@ echo "#########################"
 echo "A7:Running RNammer"
 echo "#########################"
 $trinotate_home/util/rnammer_support/RnammerTranscriptome.pl --transcriptome $trinity_file --path_to_rnammer=$rnammer_home/rnammer
-
 
 echo "#########################"
 echo "Trinotate Process A1-A7 runned completely!"

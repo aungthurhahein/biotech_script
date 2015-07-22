@@ -1,11 +1,11 @@
 #! /usr/bin/env/ python
 
 """
-# 
+#
 # usage:
-# output: 
-# Dev: __author__ = 'aung' 
-# Date: 
+# output:
+# Dev: __author__ = 'aung'
+# Date:
 """
 import sys
 blastn = sys.argv[1]
@@ -33,9 +33,3 @@ for k, xid in enumerate(blastx_oldiv):
         print xid + " is in blastn"
     else:
         f.write(xid + "\t" + "\t" + "\t" + blastx_sp[k] +'\n')
-
-
-
-
-
-

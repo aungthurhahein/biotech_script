@@ -1,6 +1,6 @@
 #!/bin/bash
-trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
-
+#trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
+trinotate_home="/fs/home/card/software/Trinotate-2.0.2" #trinoteate v.2.0.2
 # Generate Report
 echo "#########################"
 echo "Generating Annotation Report"

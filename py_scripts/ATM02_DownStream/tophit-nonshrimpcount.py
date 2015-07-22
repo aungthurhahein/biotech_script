@@ -52,10 +52,7 @@ CGCatX = 0
 
 for line in openfile:
     line_split = line.split('\t')
-    CatX = line_split[3]
-    # CatCX = line_split[4]
-    # CatCQ = line_split[5]
-    # CatQ = line_split[6].strip('\n')
+    CatX = line_split[2].split('(')[0]
 
     # B
     if CatX == '6B-I1':

@@ -1,4 +1,11 @@
-__author__ = 'Aung'
+#! /usr/bin/env/ python
+"""
+#
+# usage:
+# output:
+# Dev: __author__ = 'aung'
+# Date:
+""" 
 
 import MySQLdb
 import sys
