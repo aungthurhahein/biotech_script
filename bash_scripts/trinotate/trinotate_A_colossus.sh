@@ -16,15 +16,14 @@
 
 #sys envvariables
 trinity_home="/share/apps/trinityrnaseq_r20140717"
-trinity_local="/fs/home/card/software/trinityrnaseq_r20140717"
-#trinotate_home="/fs/home/card/hasan/Trinotate_r20140708"
-trinotate_home="/fs/home/card/software/Trinotate-2.0.2" #trinoteate v.2.0.2
+trinity_local="/colossus/home/anuphap/software/trinityrnaseq_r20140717"
+trinotate_home="/colossus/home/anuphap/software/Trinotate-2.0.2" #trinoteate v.2.0.2
 transdecoder_home="/share/apps/trinityrnaseq_r20140717/trinity-plugins/transdecoder" #version 2.0
 # transdecoder_home="/fs/home/card/software/TransDecoder-2.0.1" #version 2.1
-hmmer_home="/fs/home/card/bin"
-signalp_home="/fs/home/card/hasan/signalp-4.1"
-tmhmm_home="/fs/home/card/hasan/tmhmm/tmhmm-2.0c/bin"
-rnammer_home="/fs/home/card/hasan/rnammer"
+hmmer_home="/colossus/home/anuphap/software/hmmer"
+signalp_home="/colossus/home/anuphap/software/signalp-4.1"
+tmhmm_home="/colossus/home/anuphap/software/tmhmm/tmhmm-2.0c/bin"
+rnammer_home="/colossus/home/anuphap/software/rnammer"
 
 #input
 trinity_file="trinity.fasta"
@@ -60,14 +59,14 @@ $trinity_local/util/support_scripts/get_Trinity_gene_to_trans_map.pl $trinity_fi
 echo "A4:#########################"
 echo "Running HMMer"
 echo "#########################"
-$hmmer_home/hmmscan --cpu 8 --domtblout TrinotatePFAM.out /fs/home/card/Aung/trinotate_req/pfam/Pfam-A.hmm $transdecoder_output > pfam.log
+$hmmer_home/hmmscan --cpu 8 --domtblout TrinotatePFAM.out /colossus/home/anuphap/trinotate_req/pfam/Pfam-A.hmm $transdecoder_output > pfam.log
 
 #A5: SignalP
 echo "A5:#########################"
 echo "Running SignalP"
 echo "#########################"
 #$signalp_home/signalp -f short -n signalp.out $transdecoder_output
-python /fs/home/card/bin/run_signalp.py -v euk $transdecoder_output -o signalp.out
+python /colossus/home/anuphap/bin/run_signalp.py -v euk $transdecoder_output -o signalp.out
 
 #A6: TmHMM
 echo "#########################"

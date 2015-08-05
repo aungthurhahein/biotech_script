@@ -25,8 +25,9 @@ pep_sequence = []
 trinity_id = []
 astran_id = []
 open_map = open(map_file, 'r')
-o = open(org_fasta+"_trinity.fasta", 'w')
-p = open(pep_file+"_trinity.pep", 'w')
+
+o = open("trinity."+org_fasta, 'w')
+p = open("pep."+org_fasta, 'w')
 
 for seq_record in SeqIO.parse(org_fasta, "fasta"):
     org_id.append(str(seq_record.id).strip())
@@ -35,6 +36,7 @@ for seq_record in SeqIO.parse(org_fasta, "fasta"):
 for seq_record2 in SeqIO.parse(pep_file, "fasta"):
     pepid = str(seq_record2.id)
     trinityid = pepid.split("|")[0]
+    # trinityid = pepid.split("|")[0]+"|"+pepid.split("|")[1] # for new TrinityID
     pepid += seq_record2.description
     pep_id.append(pepid.strip())
     pep_triid.append(trinityid.strip())
@@ -48,7 +50,7 @@ for line in open_map:
 for x, asid in enumerate(astran_id):
     if asid in org_id:
         ind = org_id.index(asid)
-        o.write(">" + trinity_id[x] +"\n")
+        o.write(">" + trinity_id[x] + "\n")
         o.write(org_sequence[ind] + "\n")
         if trinity_id[x] in pep_triid:
             pind = [i for i, e in enumerate(pep_triid) if e == trinity_id[x]]

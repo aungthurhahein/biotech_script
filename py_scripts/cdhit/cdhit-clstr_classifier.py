@@ -26,8 +26,8 @@ for x in cluster_list:
     x_split = x.split('\t')
     # multi
     if len(x_split) > 2:
-        ref_id = re.search(r'>PV_ATM01\w+', x)  # ATM
-        org_id = re.search(r'>PV_ATM02\w+', x)  # NonATM
+        ref_id = re.search(r'>gpat\w+', x)  # ATM
+        org_id = re.search(r'>PM_\w+', x)  # NonATM
         if ref_id and org_id:
             both_side.append(x)
         elif ref_id:
@@ -38,17 +38,17 @@ for x in cluster_list:
             print x
     # singleton
     else:
-        ref_id = re.search(r'>PV_ATM01\w+', x_split[1])  # ATM
-        org_id = re.search(r'>PV_ATM02\w+', x_split[1])  # NonATM
+        ref_id = re.search(r'>gpat\w+', x_split[1])  # ATM
+        org_id = re.search(r'>PM_\w+', x_split[1])  # NonATM
         if ref_id:
             Set1_Singleton.append(x)
         elif org_id:
             Set2_Singleton.append(x)
-codesnippets.write_file(both_side, "{0}_Both".format(clstrfile))
-codesnippets.write_file(Set1_Multi, "{0}_Ref_Multi".format(clstrfile))
-codesnippets.write_file(Set1_Singleton, "{0}_Ref_Singleton".format(clstrfile))
-codesnippets.write_file(Set2_Multi, "{0}_Org_Multi".format(clstrfile))
-codesnippets.write_file(Set2_Singleton, "{0}_Org_Singleton".format(clstrfile))
+codesnippets.write_file(both_side, "{0}_G2".format(clstrfile))
+codesnippets.write_file(Set1_Multi, "{0}_Lib_S2".format(clstrfile))
+codesnippets.write_file(Set1_Singleton, "{0}_Lib_S1".format(clstrfile))
+codesnippets.write_file(Set2_Multi, "{0}_Trinity_S2".format(clstrfile))
+codesnippets.write_file(Set2_Singleton, "{0}_Trinity_S1".format(clstrfile))
 
 print "From both sets: " + str(len(both_side))
 # only original reads

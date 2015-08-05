@@ -16,21 +16,20 @@ try:
 except:
     print usage, sys.exit(1)
 
-seqid_read = open(seqid, 'r')
 final_records = []
 seq_id_file = []
 fasta_content={}
 
-for id in seqid_read:
-    id1 = id.split('\t')
-    seq_id_file.append(id1[0].strip())
+with open(seqid,'rb') as f1:
+    for id in f1:
+        id1 = id.split('\t')
+        seq_id_file.append(id1[0].strip().strip('>'))
 
 for seq_record in SeqIO.parse(fastafile, "fasta"):
-    id_number = seq_record.id.split('-')
-    fasta_content[id_number[1].strip()] = seq_record
+    id_number = str(seq_record.id)
+    fasta_content[id_number.strip()] = seq_record
 
 for seq_id in seq_id_file:
-    print seq_id
     if seq_id in fasta_content:
         print seq_id
         final_records.append(fasta_content.get(seq_id))
