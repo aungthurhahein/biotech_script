@@ -12,4 +12,4 @@ from Bio import SeqIO
 fasta_file = sys.argv[1]
 
 for seq_record in SeqIO.parse(fasta_file, "fasta"):
-    print seq_record.id, '\t', seq_record.seq
+    sys.stdout.write(str(seq_record.id)+"|Penaeus_vannamei"+'\t'+str(seq_record.seq)+'\n')

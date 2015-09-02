@@ -13,12 +13,26 @@ import codesnippets
 clstrfile = sys.argv[1]
 clstrfile_read = open(clstrfile, 'r')
 cluster_list = []
-both_side = []
-Set1_Singleton = []
-Set1_Multi = []  # ref
-Set2_Singleton = []
-Set2_Multi = []  # originalreads
-
+# G3-A
+# G3-N
+# G2-31A
+# G2-31N
+# G2-32A
+# G2-32N
+# G2-21
+# S2
+# S1
+G3A = []
+G3N = []
+G231A = []
+G231N = []
+G232A = []
+G232N = []
+G221 = []
+S2 = []
+S1 = []
+else_multi = []
+else_sing = []
 for line in clstrfile_read:
     cluster_list.append(line.strip())
 
@@ -26,35 +40,50 @@ for x in cluster_list:
     x_split = x.split('\t')
     # multi
     if len(x_split) > 2:
-        ref_id = re.search(r'>gpat\w+', x)  # ATM
-        org_id = re.search(r'>PM_\w+', x)  # NonATM
-        if ref_id and org_id:
-            both_side.append(x)
-        elif ref_id:
-            Set1_Multi.append(x)
-        elif org_id:
-            Set2_Multi.append(x)
+        atm01 = re.search(r'>PV_ATM01\w+', x)
+        nonatm01 = re.search(r'>PV_ATM02\w+', x)
+        atm02 = re.search(r'>PV_ATM03\w+', x)
+        nonatm02 = re.search(r'>PV_ATM04\w+', x)
+        atm03 = re.search(r'>PV_ATM05\w+', x)
+        if (atm03 and nonatm01 and nonatm02) and (atm01 or atm02):
+            G3A.append(x)
+        elif atm03 and nonatm01 and nonatm02:
+            G3N.append(x)
+        elif atm03 and atm01:
+            G231A.append(x)
+        elif atm03 and nonatm01:
+            G231N.append(x)
+        elif atm03 and atm02:
+            G232A.append(x)
+        elif atm03 and nonatm02:
+            G232N.append(x)
+        elif atm01 and atm02 and nonatm01 and nonatm02:
+            G221.append(x)
+        elif atm03:
+            S2.append(x)
         else:
-            print x
+            else_multi.append(x)
+
     # singleton
     else:
-        ref_id = re.search(r'>gpat\w+', x_split[1])  # ATM
-        org_id = re.search(r'>PM_\w+', x_split[1])  # NonATM
-        if ref_id:
-            Set1_Singleton.append(x)
-        elif org_id:
-            Set2_Singleton.append(x)
-codesnippets.write_file(both_side, "{0}_G2".format(clstrfile))
-codesnippets.write_file(Set1_Multi, "{0}_Lib_S2".format(clstrfile))
-codesnippets.write_file(Set1_Singleton, "{0}_Lib_S1".format(clstrfile))
-codesnippets.write_file(Set2_Multi, "{0}_Trinity_S2".format(clstrfile))
-codesnippets.write_file(Set2_Singleton, "{0}_Trinity_S1".format(clstrfile))
+        atm03 = re.search(r'>PV_ATM05\w+', x)
+        if atm03:
+            S1.append(x)
+        else:
+            else_sing.append(x)
 
-print "From both sets: " + str(len(both_side))
-# only original reads
-print "Multiple Refid: " + str(len(Set1_Multi))
-print "Singleton Refid: " + str(len(Set1_Singleton))
-# only original reads
-print "Multiple orgid: " + str(len(Set2_Multi))
-print "Singleton orgid: " + str(len(Set2_Singleton))
+codesnippets.write_file(G3A, "{0}_G3A".format(clstrfile))
+codesnippets.write_file(G3N, "{0}_G3N".format(clstrfile))
+codesnippets.write_file(G221, "{0}_G221".format(clstrfile))
+codesnippets.write_file(G231A, "{0}_G231A".format(clstrfile))
+codesnippets.write_file(G231N, "{0}_G231N".format(clstrfile))
+codesnippets.write_file(G232A, "{0}_G232A".format(clstrfile))
+codesnippets.write_file(G232N, "{0}_G232N".format(clstrfile))
+codesnippets.write_file(S2, "{0}_S2".format(clstrfile))
+codesnippets.write_file(S1, "{0}_S1".format(clstrfile))
+codesnippets.write_file(else_multi, "{0}_else_multi".format(clstrfile))
+codesnippets.write_file(else_sing, "{0}_else_sing".format(clstrfile))
+
+
+
 

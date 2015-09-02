@@ -9,8 +9,8 @@
 """
 import MySQLdb
 database = "SequenceDB"
-addedto_seqDB = open("addedto_seqDB_pm.txt", 'w')
-pm_updated = open("pmupdated.txt", 'w')
+addedto_seqDB = open("addedto_seqDB_NotFound.txt", 'w')
+pm_updated = open("NotFoundupdated.txt", 'w')
 
 
 def loop_query(seq):
@@ -53,7 +53,7 @@ def found_update(updateid, existingid):
 
     cur5 = db5.cursor()
     cur5.execute(
-        'update PM_Org Set SeqID = %s where SeqID = %s' % (updateid, existingid))
+        'update Not_Found Set SeqID = %s where SeqID = %s' % (updateid, existingid))
     db5.commit()
     cur5.close
     db5.close
@@ -66,7 +66,7 @@ db = MySQLdb.connect(host="127.0.0.1",
                      unix_socket="/opt/lampp/var/mysql/mysql.sock")
 # db cursor
 cur = db.cursor()
-cur.execute('select * from PM_Org')
+cur.execute('select * from Not_Found')
 for row in cur.fetchall():
     id_split = row[0].split('|')
     # not found

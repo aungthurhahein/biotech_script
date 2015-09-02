@@ -14,7 +14,3 @@
 . /fs/home/card/.bashrc
 . /fs/home/card/.bash_profile
 
-perl blstxSECqsubNOParse_500.pl /fs/home/card/LinWork/byTri/e0102/stept/smallfastafile/pepfiles/pep.nonC_Trinity /fs/home/card/LinWork/byTri/e0102/stept/blastp/e0102_blastp/ /fs/home/card/LinWork/byTri/e0102/stept/blastp/qsub.e0102_blastp/ /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep blstp xxx 1 25 UniPorta
-
-perl blstxSECqsubNOParse_500.pl /fs/home/card/LinWork/byTri/e0102/stept/smallfastafile/pepfiles/pep.nonC_Trinity /fs/home/card/LinWork/byTri/e0102/stept/blastp/e0102_blastp/ /fs/home/card/LinWork/byTri/e0102/stept/blastp/qsub.e0102_blastp /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep blstp xxx 26 50 UniPortb
-

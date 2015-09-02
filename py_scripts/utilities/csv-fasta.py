@@ -13,5 +13,5 @@ open_csv = open(csv_file, 'r')
 
 for line in open_csv:
     line_split = line.split(',')
-    print ">SgpatESTcmV3-"+line_split[0].strip('\"').strip()
+    print ">"+line_split[0].strip('\"').strip()
     print line_split[1].strip('\"').strip('\"').strip()[:-1]

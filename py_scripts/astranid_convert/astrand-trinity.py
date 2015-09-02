@@ -10,12 +10,12 @@
 import sys
 from Bio import SeqIO
 
-org_fasta = sys.argv[1] #trinityid fastafile
+org_fasta = sys.argv[1] # astranid fastafile
 map_file = sys.argv[2]  # map file(Column 1:TrinityID, Column 3: AsTranID)
 org_id = []
 org_sequence = []
 open_map = open(map_file, 'r')
-o = open(org_fasta+"_astranid.fasta", 'w')
+o = open(org_fasta+"_trinity.fasta", 'w')
 
 for seq_record in SeqIO.parse(org_fasta, "fasta"):
     org_id.append(str(seq_record.id).strip())
@@ -28,8 +28,8 @@ for line in open_map:
     trinity_id.append(line_split[0].strip().strip('>').split()[0].strip())
     astran_id.append(line_split[2].strip())
 
-for x, trid in enumerate(trinity_id):
-    if trid in org_id:
-        ind = org_id.index(trid)
-        o.write(">" + astran_id[x] +"\n")
+for x, asid in enumerate(astran_id):
+    if asid in org_id:
+        ind = org_id.index(asid)
+        o.write(">" + trinity_id[x] +"\n")
         o.write(org_sequence[ind] + "\n")

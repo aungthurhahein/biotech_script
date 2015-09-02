@@ -1,7 +1,7 @@
 #!/bin/sh
 #$ -S /bin/bash
 #Define name of job
-#$ -N Trinotate_A
+#$ -N TrinotateA
 # Run in current working dir
 #$ -cwd
 #flag to notify when the jod submitted(b) or finished(e) or both(be)
@@ -84,3 +84,5 @@ $trinotate_home/util/rnammer_support/RnammerTranscriptome.pl --transcriptome $tr
 echo "#########################"
 echo "Trinotate Process A1-A7 runned completely!"
 echo "#########################"
+
+

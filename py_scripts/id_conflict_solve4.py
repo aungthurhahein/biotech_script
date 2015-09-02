@@ -9,8 +9,8 @@
 """
 import MySQLdb
 database = "SequenceDB"
-addedto_seqDB = open("addedto_seqDB_pm.txt", 'w')
-pm_updated = open("pmupdated.txt", 'w')
+addedto_seqDB = open("addedto_PVAung_NotFound.txt", 'w')
+pm_updated = open("PVAungFoundupdated.txt", 'w')
 
 
 def loop_query(seq):
@@ -53,7 +53,7 @@ def found_update(updateid, existingid):
 
     cur5 = db5.cursor()
     cur5.execute(
-        'update PM_Org Set SeqID = %s where SeqID = %s' % (updateid, existingid))
+        'update LV2_Org Set SeqID = %s where SeqID = %s' % (updateid, existingid))
     db5.commit()
     cur5.close
     db5.close
@@ -66,18 +66,27 @@ db = MySQLdb.connect(host="127.0.0.1",
                      unix_socket="/opt/lampp/var/mysql/mysql.sock")
 # db cursor
 cur = db.cursor()
-cur.execute('select * from PM_Org')
+cur.execute('select * from LV2_Org')
+finalid = 333076
 for row in cur.fetchall():
     id_split = row[0].split('|')
     # not found
     if loop_query("'{0}'".format(row[1].strip())) is None:
-        addedto_seqDB.write(row[0]+'\n')
-        notfound_update("'{0}'".format(id_split[0].strip()), "'{0}'".format(row[1].strip()))  # id Sequence
+        newid = str(finalid+1)
+        finalid += 1
+        addedto_seqDB.write(newid+"|"+row[0]+'\n')
+        notfound_update("'{0}'".format(newid), "'{0}'".format(row[1].strip()))  # id Sequence
+        print "Not Found:" + row[0] + "   " + newid
+
+        # update file with newid
+        Updateddid = newid + '|' + id_split[0] + '|' + id_split[1]
+        found_update("'{0}'".format(Updateddid.strip()), "'{0}'".format(row[0].strip()))
+
     # found
     else:
         oldupdatedID = loop_query("'{0}'".format(row[1].strip()))
-        Updateddid = oldupdatedID[0]+'|'+id_split[1]+'|'+id_split[2]+'|'
-        print "found " + row[0] + "oldid " + oldupdatedID[0]
+        Updateddid = oldupdatedID[0]+'|'+id_split[0]+'|'+id_split[1]
+        print "found " + row[0] + " oldid " + oldupdatedID[0]
         pm_updated.write(row[0] + '\t' + oldupdatedID[0] + '\n')  # newid #oldid
-        found_update("'{0}'".format(oldupdatedID[0].strip()), "'{0}'".format(Updateddid.strip()))
+        found_update("'{0}'".format(Updateddid.strip()), "'{0}'".format(row[0].strip()))
 
