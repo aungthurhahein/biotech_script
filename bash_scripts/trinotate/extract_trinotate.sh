@@ -58,12 +58,12 @@ trlenfile="../*.fasta_lngth"
 # C5: RNammer
  sqlite3 -header -separator  $'\t' $sqlite_file  "select * from RNAMMERdata;" > rnammer.tsv
 
-sqlite3 -header -separator  $'\t' $sqlite_file "select BLASTDbase.TrinityID,UniprotIndex.LinkId from RNAMMERdata left join BLASTDbase on RNAMMERdata.TrinityQuerySequence == BLASTDbase.TrinityID left join UniprotIndex on BlastDbase.UniprotSearchString == UniprotIndex.Accession where AttributeType = 'D' and BLASTDbase.TrinityID is not null and UniprotIndex.Accession is not null ;" > rnammer_desc.tsv
+#sqlite3 -header -separator  $'\t' $sqlite_file "select BLASTDbase.TrinityID,UniprotIndex.LinkId from RNAMMERdata left join BLASTDbase on RNAMMERdata.TrinityQuerySequence == BLASTDbase.TrinityID left join UniprotIndex on BlastDbase.UniprotSearchString == UniprotIndex.Accession where AttributeType = 'D' and BLASTDbase.TrinityID is not null and UniprotIndex.Accession is not null ;" > rnammer_desc.tsv
 
-cat rnammer_desc.tsv | sort -u > rnammer_desc2.tsv
-rm -rf rnammer_desc.tsv
-python /fs/home/card/bin/RNammer_Desc.py rnammer_desc2.tsv
-rm -rf rnammer_desc2.tsv
+#cat rnammer_desc.tsv | sort -u > rnammer_desc2.tsv
+#rm -rf rnammer_desc.tsv
+#python /fs/home/card/bin/RNammer_Desc.py rnammer_desc2.tsv
+#rm -rf rnammer_desc2.tsv
 
 # HMMER
  sqlite3 -header -separator  $'\t' $sqlite_file  "select * from HMMERDbase;" > hmmer.tsv

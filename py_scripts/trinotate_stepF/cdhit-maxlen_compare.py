@@ -10,7 +10,7 @@
 import sys
 import re
 
-clstfile = sys.argv[1]  # parse cluster file
+clstfile = sys.argv[1]  # parse cluster file G2
 lenfile = sys.argv[2]  # lenfile
 
 clstid = []
@@ -39,13 +39,16 @@ for x, clst in enumerate(clstid):
     for l,mem in enumerate(memid[x]):
         lib_id = re.search(r'>c\w+', mem)       # trinity
         tr_id = re.search(r'>PM_\w+', mem)      # FKnown
+        tr_id2 = re.search(r'>MR_\w+', mem)  # FKnown
+        tr_id3 = re.search(r'>SO_\w+', mem)  # FKnown
+
         if len(memid[x]) == (l+1):
             tempmem += mem
         else:
             tempmem += mem + "\t"
         if mem.strip('\n').strip() in qid:
             ind = qid.index(mem.strip('\n').strip())
-            if tr_id:
+            if tr_id or tr_id2 or tr_id3:
                 trlen.append(qlen[ind])
             elif lib_id:
                 liblen.append(qlen[ind])
@@ -53,7 +56,7 @@ for x, clst in enumerate(clstid):
     # g2-kshort
     if max(liblen) < max(trlen):
         kshort.write(clst + "\t" + tempmem)
-    elif max(liblen) > max(trlen):
+    elif max(liblen) >= max(trlen):
         klong.write(clst + "\t" + tempmem)
 
 

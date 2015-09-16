@@ -19,7 +19,7 @@ with open(catMap,'r') as f1:
         line_split = line.split('\t')
         queryid.append(line_split[0])
         group.append(line_split[1])
-        species.append(line_split[5])
+        species.append(line_split[3])
         NX.append(line_split[2])
 unique_group = list(set(group))  # uniquify list and return as list
 unique_species = list(set(species))

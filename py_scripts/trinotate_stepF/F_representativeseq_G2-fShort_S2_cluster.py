@@ -1,11 +1,11 @@
 #! /usr/bin/env/ python
 
 """
-# 
+#
 # usage:
-# output: 
-# Dev: __author__ = 'aung' 
-# Date: 
+# output:
+# Dev: __author__ = 'aung'
+# Date:
 """
 import sys
 import re
@@ -39,13 +39,15 @@ with open(clstfile,'rb') as f2:
 
             trinity = re.search(r'>c\w+', x)
             Fknow = re.search(r'>PM_\w+', x)
+            Fknow2 = re.search(r'>SO_\w+', x)
+            Fknow3 = re.search(r'>MR_\w+', x)
             if trinity:
                 tr_count += 1
                 if tr_mem == "":
                     tr_mem = x
                 else:
                     tr_mem += ";"+x
-            elif Fknow:
+            elif Fknow or Fknow2 or Fknow3:
                 fknow_count += 1
 
-        sys.stdout.write(cid+'\t'+str(group)+'\t'+str(len(l2_split[1:]))+'\t'+str(fknow_count)+'\t'+str(tr_count)+'\t'+clstrep[clstid.index(cid.strip())].strip('\n')+'\t'+mem.strip('\n')+'\t'+tr_mem+'\n')
+        sys.stdout.write(cid+'\t'+str(group)+'\t'+str(len(l2_split[1:]))+'\t'+str(fknow_count)+'\t'+str(tr_count)+'\t'+clstrep[clstid.index(cid.strip())].strip('\n')+'\t'+mem.strip('\n')+'\t'+tr_mem.strip('\n')+'\n')

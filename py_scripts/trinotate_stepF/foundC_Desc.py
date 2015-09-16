@@ -47,11 +47,15 @@ for x, clst in enumerate(clstid):
     liblen = {}
     for l, mem in enumerate(memid[x]):
         lib_id = re.search(r'>PM\w+', mem)
+        lib_id2 = re.search(r'>MR\w+', mem)
+        lib_id3 = re.search(r'>SO\w+', mem)
         tr_id = re.search(r'>c\w+', mem)
+
         if mem.strip('\n').strip('>').strip() in qid:
             ind = qid.index(mem.strip('\n').strip('>').strip())
-            if lib_id:
-                liblen[int(qlen[ind])] =  mem.strip('\n').strip('>').strip()
+            if lib_id or lib_id2 or lib_id3:
+                liblen[int(qlen[ind])] = mem.strip('\n').strip('>').strip()
+
         if tr_id:
             trid.append(mem.strip('\n').strip('>').strip())
             trclust.append(clst.strip('\n'))

@@ -12,15 +12,15 @@ import codesnippets
 
 v1file = sys.argv[1]
 # v2file = sys.argv[2]
-base = "/fs/home/card/LinWork/atm/blastnNT/NucSeq_blastn/task9_aung/AyInverGrps/"
-G1 = base+"G1.Invertebrates.taxonList.6656.IDs.RV"
-G2 = base+"G2.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RV"
-G3 = base+"G3.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RV"
-G4 = base+"G4.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RV"
-G5 = base+"G5.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RV"
-G6 = base+"G6.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RV"
-G7 = base+"G7.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RM.33317.IDs.RV"
-G8 = base+"G8.Invertebrates.taxonList.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RM.33317.IDs.RM"
+base = "/fs/home/card/taxon_divlist/taxdiv_info/"
+G1 = base+"I1.update7_missing.id.div.Inv.6656.IDs.RV"
+G2 = base+"I2.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RV"
+G3 = base+"I3.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RV"
+G4 = base+"I4.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RV"
+G5 = base+"I5.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RV"
+G6 = base+"I6.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RV"
+G7 = base+"I7.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RM.33317.IDs.RV"
+G8 = base+"I8.update7_missing.id.div.Inv.6656.IDs.RM.6231.IDs.RM.7711.IDs.RM.6447.IDs.RM.33511.IDs.RM.6157.IDs.RM.33317.IDs.RM"
 
 G1_list = codesnippets.file_read_line(G1)
 G2_list = codesnippets.file_read_line(G2)
@@ -44,8 +44,8 @@ v1_record = []
 for line in openv1file:
     line_split = line.split('\t')
     v1_id.append(line_split[0].strip().strip('>'))
-    v1_taxon.append(line_split[26].strip())
-    v1_division.append(line_split[29].strip())
+    v1_taxon.append(line_split[1].strip())
+    v1_division.append(line_split[4].strip())
     v1_record.append(line.strip().strip('\n'))
 
 # for line2 in openv2file:

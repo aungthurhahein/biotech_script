@@ -9,7 +9,7 @@
 #email to distribute job status
 #$ -M aungthurhahein@gmail.com
 # for mutli-thread(parallel) jobs, provide no. of nodes to run(even number make sense)
-#$ -pe mpich 4
+#$ -pe mpich 1
 
 . /fs/home/card/.bashrc
 . /fs/home/card/.bash_profile
@@ -84,5 +84,3 @@ $trinotate_home/util/rnammer_support/RnammerTranscriptome.pl --transcriptome $tr
 echo "#########################"
 echo "Trinotate Process A1-A7 runned completely!"
 echo "#########################"
-
-

@@ -40,25 +40,39 @@ print len(uniqid)
 out = open("BlastDescription.tsv_blasxp.tophit.summary",'w')
 out.write("Trinity-ID\tBlastx\tBlastp\tDatabase\tDate\n")
 for mem in uniqid:
-    xdes = ""
-    pdes = ""
+    xdes = []
+    pdes = []
     xind = [x for x, e in enumerate(xid) if e == mem]
     pind = [x2 for x2, e2 in enumerate(pid) if e2 == mem]
     for c,xi in enumerate(xind):
         if c == 0:
-            xdes = xdesc[xi]
+            xdes.append(xdesc[xi])
         else:
-            xdes += xdesc[xi]+"|"
+            xdes.append(xdesc[xi])
     for cp, pi in enumerate(pind):
         if cp == 0:
-            pdes = pdesc[pi]
+            pdes.append(pdesc[pi])
         else:
-            pdes += pdesc[pi] + "|"
+            pdes.append(pdesc[pi])
     if len(xind) == 0:
-        xdes = "NaN"
+        xdes.append("NaN")
     if len(pind) == 0:
-        pdes = "NaN"
-    out.write(mem+'\t'+xdes+'\t'+pdes+'\t'+DB+'\t'+date+'\n')
+        pdes.append("NaN")
+    uniqxdes = list(set(xdes))
+    uniqpdes = list(set(pdes))
+    tmp1 = ""
+    for m in uniqxdes:
+        if tmp1 == "":
+            tmp1 = m
+        else:
+            tmp1 += "|"+m
+    tmp2 = ""
+    for m in uniqpdes:
+        if tmp2 == "":
+            tmp2 = m
+        else:
+            tmp2 += "|" + m
+    out.write(mem+'\t'+tmp1+'\t'+tmp2+'\t'+DB+'\t'+date+'\n')
 
 
 

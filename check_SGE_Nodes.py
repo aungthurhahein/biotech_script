@@ -3,7 +3,7 @@
 # check SGE server nodes availability.(Need to run at head node)
 # usage:python check_SGE_Nodes.py
 # output: list of recommended node to submit jobs
-# Dev: __author__ = 'aung' 
+# Dev: __author__ = 'aung'
 # Date: 03/06/2015
 """
 import os
@@ -42,5 +42,3 @@ for key,value in job_aval.iteritems():
     if key.strip() in aval_node:
         print key,'\t',value,'\t',32-value
 print "#------------------------------------#"
-
-

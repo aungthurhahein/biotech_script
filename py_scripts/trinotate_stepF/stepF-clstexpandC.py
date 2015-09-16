@@ -1,11 +1,11 @@
 #! /usr/bin/env/ python
 
 """
-# 
+#
 # usage:
-# output: 
-# Dev: __author__ = 'aung' 
-# Date: 
+# output:
+# Dev: __author__ = 'aung'
+# Date:
 """
 import sys
 import re
@@ -40,8 +40,8 @@ with open(FDescfile,'rb') as f2:
             ind = clstrep.index(astrrepid)
             mem_split = clst_allmem[ind].split(';')
             for m in mem_split:
-                e01 = re.search(r'PM_e0101\w+', m)
+                e01 = re.search(r'PVPM_E0101_\w+', m.strip('>'))        #need to change id here
                 if e01:
-                    sys.stdout.write(m.strip('>')+'\t'+line2_split[1]+'\n')
-
-
+                    sys.stdout.write(m.strip('>')+'\t'+line2_split[1]+'\t'+line2_split[2]+'\t'+line2_split[3]+'\n')
+        else:
+            sys.stdout.write(astrrepid + '\t' + line2_split[1] +'\t'+line2_split[2]+'\t'+line2_split[3] +'\n')

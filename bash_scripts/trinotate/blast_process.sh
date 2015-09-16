@@ -7,14 +7,14 @@ step2blastp="/fs/home/card/blastscripts/blstpSECqsubNoParse.pl"
 
 #---------------These variables need to adjust-------------------------------#
 # Hint: copy from blast_prepare.sh
-basedir="/fs/home/card/Aung/ATM03-Task23/"
-outputloc="/fs/home/card/Aung/ATM03-Task23/fastafiles/"   # base dir of outputfile
-prefix="nonshrimpATM03_all.id.fasta"      # prefix of output files
-outputpep="/fs/home/card/Aung/by_trinotate/e0101_trinotate/blast/pepfiles/"
+basedir="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast/"
+outputloc="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast/fastafiles/"   # base dir of outputfile
+prefix="trinitynonF.id.fasta_astranid.fasta"                           # prefix of output files
+outputpep="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast/pepfiles/"
 prefixpep="pepnonF.id.fasta_astranid.fasta"
-seqsize="200"  #size to split fasta file
-inputfasta="/fs/home/card/Aung/ATM03-Task23/nonshrimpATM03_all.id.fasta"  # input fastafile
-inputpep="/fs/home/card/Aung/by_trinotate/e0101_trinotate/blast/pepnonF.id.fasta_astranid.fasta"  # input pepfile
+seqsize="200"                                                          # size to split fasta file
+inputfasta="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast/trinitynonF.id.fasta_astranid.fasta"   # input fastafile
+inputpep="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast/pepnonF.id.fasta_astranid.fasta"         # input pepfile
 
 #---------------------------------------------------#
 
@@ -48,11 +48,17 @@ qsubout90=$basedir$dir4
 #<-----------
 
 #generate files
-perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  1 11 UniPorta
-perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  12 22 UniPortb
+perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  1 50 UniPorta
+perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  51 100 UniPortb
+perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  101 150 UniPortc
+perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  151 200 UniPortd
+perl $step2blastx $inputfiles$prefix2 $outputdir $qsubout $db $blasttype  201 256 UniPorte
 
-perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  1 11 UniRef90a
-perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  12 22 UniRef90b
+perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  1 50 UniRef90a
+perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  51 100 UniPortb
+perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  101 150 UniPortc
+perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  151 200 UniPortd
+perl $step2blastx $inputfiles$prefix2 $outputdir90 $qsubout90 $db90 $blasttype  201 256 UniPorte
 
 #---------------------------------------------------#
 
@@ -82,12 +88,18 @@ outputdir90=$basedir$dir3
 qsubout90=$basedir$dir4
 
 
-perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  1 3 UniPorta
-perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  4 7 UniPortb
+perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  1 50 UniPorta
+perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  51 100 UniPortb
+perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  101 150 UniPortc
+perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  151 200 UniPortd
+perl $step2blastp $inputfiles$prefix3 $outputdir $qsubout $db $blasttype  201 220 UniPorte
 
-perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  1 3 UniRef90a
-perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  4 7 UniRef90b
-#---------------------------------------------------#
+perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  1 50 UniRef90a
+perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  51 100 UniRef90b
+perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  101 150 UniRef90c
+perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  151 200 UniRef90d
+perl $step2blastp $inputfiles$prefix3 $outputdir90 $qsubout90 $db90 $blasttype  201 220 UniRef90d
+#---------------------------------------------------#ls
 
 #step 3: concat outputfiles to final ones
 # blastx.outfmt6
