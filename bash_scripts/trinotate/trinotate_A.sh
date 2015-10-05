@@ -27,7 +27,7 @@ tmhmm_home="/fs/home/card/hasan/tmhmm/tmhmm-2.0c/bin"
 rnammer_home="/fs/home/card/hasan/rnammer"
 
 #input
-trinity_file="trinity.fasta"
+trinity_file="contigsV22_pool_Lin201501.txt.fasta_out"
 ext=".transdecoder.pep"
 ext2=".gene_trans_map"
 transdecoder_output=$trinity_file$ext

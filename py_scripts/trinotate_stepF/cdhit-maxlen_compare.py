@@ -33,14 +33,14 @@ kshort = open(clstfile+"_G2_fshrot",'w')
 klong = open(clstfile+"_G2_flong",'w')
 
 for x, clst in enumerate(clstid):
+    fknownlen = []
     trlen = []
-    liblen = []
     tempmem = ""
     for l,mem in enumerate(memid[x]):
-        lib_id = re.search(r'>c\w+', mem)       # trinity
-        tr_id = re.search(r'>PM_\w+', mem)      # FKnown
-        tr_id2 = re.search(r'>MR_\w+', mem)  # FKnown
-        tr_id3 = re.search(r'>SO_\w+', mem)  # FKnown
+        tr_id = re.search(r'>c\w+', mem)       # trinity
+        fknown_id = re.search(r'>PM_\w+', mem)      # FKnown
+        fknown_id2 = re.search(r'>MR_\w+', mem)  # FKnown
+        fknown_id3 = re.search(r'>SO_\w+', mem)  # FKnown
 
         if len(memid[x]) == (l+1):
             tempmem += mem
@@ -48,15 +48,15 @@ for x, clst in enumerate(clstid):
             tempmem += mem + "\t"
         if mem.strip('\n').strip() in qid:
             ind = qid.index(mem.strip('\n').strip())
-            if tr_id or tr_id2 or tr_id3:
+            if fknown_id or fknown_id2 or fknown_id3:
+                fknownlen.append(qlen[ind])
+            elif tr_id:
                 trlen.append(qlen[ind])
-            elif lib_id:
-                liblen.append(qlen[ind])
-    print trlen, liblen
+
     # g2-kshort
-    if max(liblen) < max(trlen):
+    if max(fknownlen) < max(trlen):
         kshort.write(clst + "\t" + tempmem)
-    elif max(liblen) >= max(trlen):
+    elif max(fknownlen) >= max(trlen):
         klong.write(clst + "\t" + tempmem)
 
 

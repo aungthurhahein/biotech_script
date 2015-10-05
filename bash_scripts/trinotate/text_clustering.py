@@ -8,8 +8,10 @@
 # Date: 20150914
 """
 import sys
+import re
 from math import log, sqrt
 from itertools import combinations
+from collections import OrderedDict
 
 def cosine_distance(a, b):
     cos = 0.0
@@ -109,47 +111,68 @@ def list_string(listObj):
         line_split = x.split(',')
         for m in line_split:
             if tmplist == "":
-                tmplist = m + " "
+                tmplist = m.lower() + " "
             else:
-                tmplist += m + " "
+                tmplist += m.lower() + " "
     return tmplist
 
 def main(args):
     descfile = sys.argv[1]
-    tmplist = ""
+
     with open(descfile, 'rb') as f1:
         for x in f1:
-            line_split = x.split(',')
-            for m in line_split:
-                if tmplist == "":
-                    tmplist = m+"\n"
-                else:
-                    tmplist += m+"\n"
+            tmplist = ""
+            line_split = x.split('\t')
+            if ',' in line_split[1]:
+                l_split = line_split[1].split(',')
+            else:
+                l_split = line_split[1].split('|')
+            # l_split = re.split(',', line_split[1])
 
-    documents = get_documents(tmplist)      # input as list
-    add_tfidf_to(documents)
-    dist_graph = get_distance_graph(documents)
+            for m in l_split:
+                print m
+                if tmplist == "":
+                    tmplist = m.strip('\n')+"\n"
+                else:
+                    tmplist += m.strip('\n')+"\n"
+
+            # print len(tmplist.strip('\n').split('\n'))
+            if len(tmplist.strip('\n').split('\n')) == 1:
+                sys.stdout.write(x)
+            else:
+                documents = get_documents(tmplist.strip('\n'))      # input as list
+                add_tfidf_to(documents)
+                dist_graph = get_distance_graph(documents)
 
     # print result
     for cluster in majorclust(dist_graph):
         tmp_result = []
-        print "="*20
+        # print "="*20
         for doc_id in cluster:
             # print documents[doc_id]["text"]
             tmp_result.append(documents[doc_id]["text"])
         uniqlist = sorted(list(set(tmp_result)))
-        print uniqlist
+
 
         # playing with the clusters
-        from collections import defaultdict
         words = list_string(uniqlist)
-        d = defaultdict(int)
+        d2 = OrderedDict()
+
         for word in words.split():
-            d[word] += 1
-        for k,v in d.iteritems():
-            if v > 1:
-                print k
-        # print d
+            if word not in d2:
+                d2[word] = 1
+            else:
+                d2[word] += 1
+        # print d2
+        if len(uniqlist) > 1:
+            tmpstring = ""
+            for k, v in d2.iteritems():
+                if v > 1:
+                    tmpstring += k+' '
+            sys.stdout.write(tmpstring + '\n')
+            # print d
+        else:
+            sys.stdout.write(''.join(uniqlist))
 
 if __name__ == '__main__':
     main(sys.argv)

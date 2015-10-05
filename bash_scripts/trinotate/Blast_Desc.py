@@ -23,20 +23,17 @@ DB = "Trinotate"
 with open(blastp_desc, 'rb') as f1:
     for line in f1:
         line_split = line.split('\t')
-        print line_split
         pid.append(line_split[0].split('|')[0].strip())
-        pdesc.append(line_split[17].strip(';').split('=')[1])
+        pdesc.append(line_split[17].strip(';').split('=')[1].strip('|'))
 
 with open(blastx_desc, 'rb') as f2:
     for line2 in f2:
         line2_split = line2.split('\t')
-        print line2_split
         xid.append(line2_split[0].strip())
-        xdesc.append(line2_split[17].strip(';').split('=')[1])
+        xdesc.append(line2_split[17].strip(';').split('=')[1].strip('|'))
 
 uniqid = list(set(pid+xid))
 uniqid.sort()
-print len(uniqid)
 out = open("BlastDescription.tsv_blasxp.tophit.summary",'w')
 out.write("Trinity-ID\tBlastx\tBlastp\tDatabase\tDate\n")
 for mem in uniqid:
@@ -63,15 +60,16 @@ for mem in uniqid:
     tmp1 = ""
     for m in uniqxdes:
         if tmp1 == "":
-            tmp1 = m
+            tmp1 = m.split("{")[0].strip("|")
         else:
-            tmp1 += "|"+m
+            tmp1 += "|"+m.split("{")[0].strip("|")
+
     tmp2 = ""
-    for m in uniqpdes:
+    for m2 in uniqpdes:
         if tmp2 == "":
-            tmp2 = m
+            tmp2 = m2.split("{")[0].strip("|")
         else:
-            tmp2 += "|" + m
+            tmp2 += "|" + m2.split("{")[0].strip("|")
     out.write(mem+'\t'+tmp1+'\t'+tmp2+'\t'+DB+'\t'+date+'\n')
 
 

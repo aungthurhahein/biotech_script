@@ -26,3 +26,4 @@ do
 #    echo "file_out=$i$out" >> $filename
     echo "$cdhit_home/cd-hit-est -i $i  -o $file_out -c 0.98 -aS 0.97 -d 200 -g 1 -M 10000 -T 15" >> $filename
 done
+

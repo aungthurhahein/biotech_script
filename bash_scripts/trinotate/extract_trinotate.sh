@@ -25,12 +25,12 @@ trlenfile="../*.fasta_lngth"
 
 # C1:Blast
  sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BLASTDbase;" > Blast.tsv
-
-# BlastX
- sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BlastDBase left join Transcript on BlastDbase.TrinityID == Transcript.transcript_id where Transcript.transcript_id is not null;" > BlastX.tsv
-
-# BlastP
- sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BLASTDbase left join ORF on BlastDbase.TrinityID == ORF.Orf_id where ORF.Orf_id is not null;" > BlastP.tsv
+#
+## BlastX
+# sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BlastDBase left join Transcript on BlastDbase.TrinityID == Transcript.transcript_id where Transcript.transcript_id is not null;" > BlastX.tsv
+#
+## BlastP
+# sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BLASTDbase left join ORF on BlastDbase.TrinityID == ORF.Orf_id where ORF.Orf_id is not null;" > BlastP.tsv
 
 # Description
  sqlite3 -header -separator  $'\t' $sqlite_file  "select * from BLASTDbase left join UniprotIndex on BlastDbase.UniprotSearchString == UniprotIndex.Accession where AttributeType = 'D' and BLASTDbase.TrinityID is not null and UniprotIndex.Accession is not null;" > BlastDescription.tsv

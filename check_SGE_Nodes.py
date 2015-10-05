@@ -41,4 +41,10 @@ print "Nodes\tOccupied Slots\tAvailable Slots"
 for key,value in job_aval.iteritems():
     if key.strip() in aval_node:
         print key,'\t',value,'\t',32-value
+        del aval_node[aval_node.index(key)]
+
+# for nodes totally free
+for n in aval_node:
+    print n, '\t0\t32'
 print "#------------------------------------#"
+
