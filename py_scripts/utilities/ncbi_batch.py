@@ -114,7 +114,7 @@ def main(db, term, datetype, reldate, mindate, maxdate, rettype):
         print "Result Count: " + record_count
 
         # for records <= 10000, download in 1 batch
-        if int(record_count) <= 10000:
+        if int(record_count) <= 1000000:
             print "downloading sequences..."
             values = {
                 'db': db,
@@ -133,26 +133,28 @@ def main(db, term, datetype, reldate, mindate, maxdate, rettype):
         else:
             # times = int(int(record_count)/10000)
             restart = 0
+            retmax= 100000
             while restart < int(record_count):
-                restart += 10000
-                print "downloading" + str(restart) + " sequence of " + str(record_count) + " sequences"
-                values = {
+                print "downloading" + str(retmax) + " sequence of " + str(record_count) + " sequences"
+                values_max = {
                     'db': db,
                     'query_key': query_key,
                     'WebEnv': web_env,
                     'restart': restart,
-                    'retmax': 10000,
+                    'retmax': retmax,
                     'rettype': rettype_val,
                     'retmode': 'text'
                 }
+                restart += retmax
                 # post the efetch URL
-                data = urllib.urlencode(values)
+                data = urllib.urlencode(values_max)
                 req = urllib2.Request(url, data)
                 response = urllib2.urlopen(req)
                 output = response.readlines()
                 write_file(output,
                            re.sub(" ", "_", term.strip()) + "_records.gb_" + str(restart))  # write to gbank file
             exit(1)
+    print "_"*20
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-ovi"""
+"""
 # parse cdhist_clstr_paser output into groups
 # Input: #cluser id    #member1....#memberN
 # usage: python cdhit-clstr_classifer.py xxxCluster.stat.parse

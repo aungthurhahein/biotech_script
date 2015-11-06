@@ -7,25 +7,25 @@
 # Dev: __author__ = 'aung' 
 # Date: 
 """
-
+import sys
 #16 files input
-A1="/home/aung/combine_id/A1.id"
-A2="/home/aung/combine_id/A2.id"
-B3="/home/aung/combine_id/B3.id"
-B4="/home/aung/combine_id/B4.id"
-B5="/home/aung/combine_id/B5.id"
-B6="/home/aung/combine_id/B6.id"
-B7="/home/aung/combine_id/B7.id"
-B8="/home/aung/combine_id/B8.id"
-B9="/home/aung/combine_id/B9.id"
-C10="/home/aung/combine_id/B10.id"
-C11="/home/aung/combine_id/C11.id"
-C12="/home/aung/combine_id/C12.id"
-D13="/home/aung/combine_id/D13.id"
-E14="/home/aung/combine_id/E14.id"
-E15="/home/aung/combine_id/E15.id"
-E16="/home/aung/combine_id/E16.id"
-ATM03="/home/aung/combine_id/ATM03.fasta.id"
+A1="A1.fasta_out.clstr_all"
+A2="A2.fasta_out.clstr_all"
+B3="A3.fasta_out.clstr_all"
+B4="A4.fasta_out.clstr_all"
+B5="A5.fasta_out.clstr_all"
+B6="A6.fasta_out.clstr_all"
+B7="A7.fasta_out.clstr_all"
+B8="A8.fasta_out.clstr_all"
+B9="A9.fasta_out.clstr_all"
+C10="A10.fasta_out.clstr_all"
+C11="A11.fasta_out.clstr_all"
+C12="A12.fasta_out.clstr_all"
+D13="A13.fasta_out.clstr_all"
+E14="A14.fasta_out.clstr_all"
+E15="A15.fasta_out.clstr_all"
+E16="A16.fasta_out.clstr_all"
+ATM03="ATM04.fasta.id"
 
 def file_list(fileinput):
     with open(fileinput,'rb') as f:
@@ -52,7 +52,7 @@ E15_list = file_list(E15)
 E16_list = file_list(E16)
 ATM03_list = file_list(ATM03)
 
-o = open("ATM03_nonShrimp.matrix", 'w')
+o = open("ATM04_nonShrimp.matrix", 'w')
 
 for x in ATM03_list:
     tmp_str = ""

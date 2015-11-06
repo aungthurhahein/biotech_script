@@ -24,4 +24,4 @@ with open(trfile,'rb') as f:
         line_split = line.split('\t')
         if line_split[0] in trinity_id:
             ind = trinity_id.index(line_split[0])
-            sys.stdout.write(astran_id[ind]+"\t"+line_split[1])
+            sys.stdout.write(astran_id[ind]+"\t"+line_split[1]+'\n')

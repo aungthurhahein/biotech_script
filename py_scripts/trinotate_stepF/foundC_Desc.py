@@ -48,7 +48,7 @@ for x, clst in enumerate(clstid):
     for l, mem in enumerate(memid[x]):
         lib_id = re.search(r'>PM\w+', mem)
         lib_id2 = re.search(r'>MR\w+', mem)
-        lib_id3 = re.search(r'>SO\w+', mem)
+        lib_id3 = re.search(r'>SO_PAO\w+', mem)
         tr_id = re.search(r'>c\w+', mem)
 
         if mem.strip('\n').strip('>').strip() in qid:
@@ -77,7 +77,7 @@ for x, clst in enumerate(clstid):
                 elif count == 1:
                     descrec += desc[descid.index(liblen[k].strip())].strip('\n')
                 else:
-                    descrec += desc[descid.index(liblen[k].strip())].strip('\n') + '|'
+                    descrec += desc[descid.index(liblen[k].strip())].strip('\n') + ';'
             count += 1
         sys.stdout.write(tmp.strip(">") + '\t' + longdesc + '\t' + db + '\t' + date + '\t' + descrec + '\n')
 
