@@ -210,15 +210,42 @@ codesnippets.write_file(G2N1, "{0}_G2N1".format(clstrfile))
 codesnippets.write_file(G2N2, "{0}_G2N2".format(clstrfile))
 codesnippets.write_file(G23, "{0}_G23".format(clstrfile))
 
-
-
-
-
 #
-# cat ATM03-Task20-A.fasta_out.clstr.parse_else_multi | awk -F '\t' '{print $1"\tElse-Multi"}' > clst.group
-#
-# cat ATM03-Task20-A.fasta_out.clstr.parse_else_sing | awk -F '\t' '{print $1"\tElse-Sing"}' >> clst.group
-#
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A2 | awk -F '\t' '{print $1"\tG3A2"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A2 | awk -F '\t' '{print $1"\tG4A2"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G23 | awk -F '\t' '{print $1"\tG23"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A3| awk -F '\t' '{print $1"\tG3A3"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A3| awk -F '\t' '{print $1"\tG4A3"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2A1| awk -F '\t' '{print $1"\tG2A1"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A4| awk -F '\t' '{print $1"\tG3A4"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A4| awk -F '\t' '{print $1"\tG4A4"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2A2| awk -F '\t' '{print $1"\tG2A2"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A5| awk -F '\t' '{print $1"\tG3A5"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A5| awk -F '\t' '{print $1"\tG4A5"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2A3| awk -F '\t' '{print $1"\tG2A3"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A6| awk -F '\t' '{print $1"\tG3A6"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A6| awk -F '\t' '{print $1"\tG4A6"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2A4| awk -F '\t' '{print $1"\tG2A4"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A7| awk -F '\t' '{print $1"\tG3A7"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A7| awk -F '\t' '{print $1"\tG4A7"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2N1| awk -F '\t' '{print $1"\tG2N1"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A8| awk -F '\t' '{print $1"\tG3A8"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A8| awk -F '\t' '{print $1"\tG4A8"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G2N2| awk -F '\t' '{print $1"\tG2N2"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A9| awk -F '\t' '{print $1"\tG3A9"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4N| awk -F '\t' '{print $1"\tG4N"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A1| awk -F '\t' '{print $1"\tG3A1"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3N1| awk -F '\t' '{print $1"\tG3N1"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A10| awk -F '\t' '{print $1"\tG3A10"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3N2| awk -F '\t' '{print $1"\tG3N2"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A11| awk -F '\t' '{print $1"\tG3A11"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3N3| awk -F '\t' '{print $1"\tG3N3"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G3A12| awk -F '\t' '{print $1"\tG3A12"}' >> atm04_clst.group
+# cat atm04_clustercountExpend_withATM03-Task20B.matrix_G4A1| awk -F '\t' '{print $1"\tG4A1"}' >> atm04_clst.group
+
+# cat ATM0425A.fasta_out.clstr.parse2_multi| awk -F '\t' '{print $1"\tS2"}' >> atm04_clst.group
+# cat ATM0425A.fasta_out.clstr.parse2_singleton| awk -F '\t' '{print $1"\tS1"}' >> atm04_clst.group
+
 # cat ATM03-Task20-A.fasta_out.clstr.parse_G221 | awk -F '\t' '{print $1"\tG221"}' >> clst.group
 #
 # cat ATM03-Task20-A.fasta_out.clstr.parse_G231A | awk -F '\t' '{print $1"\tG231A"}' >> clst.group

@@ -11,7 +11,7 @@ def file_read_line(fileinput):
     file_list = []
     with open(fileinput,'rb') as f1:
         for line in f1:
-            file_list.append(line.strip())
+            file_list.append(line.strip('\n'))
     return file_list
 
 
