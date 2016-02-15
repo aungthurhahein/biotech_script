@@ -13,15 +13,15 @@ import codesnippets
 clstrfile = sys.argv[1]
 fastafile = sys.argv[2]
 clstrid = sys.argv[3]
-clstrfile_read = open(clstrfile, 'r')
-clstrid_read = open(clstrid, 'r') # by file
+# clstrfile_read = open(clstrfile, 'r')
+# clstrid_read = open(clstrid, 'r') # by file
 clstr_list = []
 clstr_id = []
 org_seqid = []
 org_sequence = []
 
-clstr_list = codesnippets.file_read_line(clstrfile_read)
-clstr_id = codesnippets.file_read_line(clstrid_read)  # by file
+clstr_list = codesnippets.file_read_line(clstrfile)
+clstr_id = codesnippets.file_read_line(clstrid)  # by file
 
 # clstr_id = clstrid.split(',')
 for seq_record in SeqIO.parse(fastafile, "fasta"):
@@ -29,7 +29,7 @@ for seq_record in SeqIO.parse(fastafile, "fasta"):
     org_sequence.append(seq_record.seq.strip())
 
 for clstrid in clstr_id:
-    # clstrid = ">Cluster {0}".format(clstrid) # not necessary for ID file input
+    clstrid = ">Cluster {0}".format(clstrid) # not necessary for ID file input
     for x in clstr_list:
         x_split = x.split('\t')
         if clstrid.strip() == x_split[0].strip():

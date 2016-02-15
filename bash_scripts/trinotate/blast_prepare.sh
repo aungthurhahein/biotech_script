@@ -9,13 +9,13 @@ mkdir fastafiles && mkdir pepfiles
 # step 1: splitting files
 
 #---------------These variables need to adjust-------------------------------#
-basedir="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast2/"
-outputloc="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast2/fastafiles/"   # base dir of outputfile
-prefix="trinityfshort.id.fasta_astranid.fasta"      # prefix of output files
+basedir="/fs/home/card/Aung/ATM04/ATM04-Task27B/"
+outputloc="/fs/home/card/Aung/ATM04/ATM04-Task27B/blast/"   # base dir of outputfile
+prefix="ATM04_task27B.contigs.orgid.fasta"      # prefix of output files
 outputpep="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast2/pepfiles/"
 prefixpep="pepfshort.id.fasta_astranid.fasta"
 seqsize="200"  #size to split fasta file
-inputfasta="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast2/trinityfshort.id.fasta_astranid.fasta"  # input fastafile
+inputfasta="/fs/home/card/Aung/ATM04/ATM04-Task27B/ATM04_task27B.contigs.orgid.fasta"  # input fastafile
 inputpep="/fs/home/card/Aung/SIESTCM_CDHIT/StepT/blast2/pepfshort.id.fasta_astranid.fasta"  # input pepfile
 #---------------These variables need to adjust-------------------------------#
 

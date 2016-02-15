@@ -27,7 +27,7 @@ tmhmm_home="/fs/home/card/hasan/tmhmm/tmhmm-2.0c/bin"
 rnammer_home="/fs/home/card/hasan/rnammer"
 
 #input
-trinity_file="contigsV22_pool_Lin201501.txt.fasta_out"
+trinity_file="KritSSH01_contigs_singleton.fasta_trinity_fmt.fasta"
 ext=".transdecoder.pep"
 ext2=".gene_trans_map"
 transdecoder_output=$trinity_file$ext
@@ -49,12 +49,13 @@ $trinity_local/util/support_scripts/get_Trinity_gene_to_trans_map.pl $trinity_fi
 #echo "#########################"
 #echo "A3:Running blastp and blastx"
 #echo "#########################"
+
 ## swissport
-#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastx.outfmt6
-#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > blastp.outfmt6
+#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8  -outfmt 6 -max_target_seqs 500 -evalue 0.001 -soft_masking true -matrix BLOSUM45 > blastx.outfmt6
+#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniport_sprot/uniprot_sprot.trinotate.pep -num_threads 8 -outfmt 6 -max_target_seqs 500 -evalue 0.001 -soft_masking true -matrix BLOSUM45 > blastp.outfmt6
 #
-#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastx.outfmt6
-#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 > uniref90.blastp.outfmt6
+#blastx -query $trinity_file -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8  -outfmt 6 -max_target_seqs 500 -evalue 0.001 -soft_masking true -matrix BLOSUM45 > uniref90.blastx.outfmt6
+#blastp -query $transdecoder_output -db /fs/home/card/Aung/trinotate_req/uniprot_uniref90/uniprot_uniref90.trinotate.pep -num_threads 8 -outfmt 6 -max_target_seqs 500 -evalue 0.001 -soft_masking true -matrix BLOSUM45 > uniref90.blastp.outfmt6
 
 #A4: HMMer
 echo "A4:#########################"
@@ -84,3 +85,4 @@ $trinotate_home/util/rnammer_support/RnammerTranscriptome.pl --transcriptome $tr
 echo "#########################"
 echo "Trinotate Process A1-A7 runned completely!"
 echo "#########################"
+

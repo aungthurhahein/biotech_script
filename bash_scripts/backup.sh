@@ -25,8 +25,3 @@ rsync -raqz --log-file=/home/nfs/nfs_log/assembly1.log --ignore-existing /media/
 rsync -raqz --log-file=/home/nfs/nfs_log/assembly2.log --ignore-existing /media/nfs/2TBHD2/assembly/ /home/nfs/HD2/
 
 rsync -raqz --log-file=/home/nfs/nfs_log/newsra.log --ignore-existing /home/back_up/ /home/nfs/HD1/SRA_New_062015/
-
-
-
-
-

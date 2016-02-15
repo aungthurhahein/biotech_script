@@ -8,13 +8,13 @@ mkdir fastafiles && mkdir pepfiles
 # step 1: splitting files
 
 #---------------These variables need to adjust-------------------------------#
-basedir="/colossus/home/anuphap/e0106/blast/"
-outputloc="/colossus/home/anuphap/e0106/blast/fastafiles/"   # base dir of outputfile
-prefix="trinitynonF.id.fasta_astranid.fasta"      # prefix of output files
+    basedir="/colossus/home/anuphap/Ortho20151125-HI/"
+outputloc="/colossus/home/anuphap/Ortho20151125-HI/fastafiles/"   # base dir of outputfile
+prefix="RepSeq_allprot_HI.fasta"      # prefix of output files
 outputpep="/colossus/home/anuphap/e0106/blast/pepfiles/"
 prefixpep="pepnonF.id.fasta_astranid.fasta"
 seqsize="200"  #size to split fasta file
-inputfasta="/colossus/home/anuphap/e0106/blast/trinitynonF.id.fasta_astranid.fasta"  # input fastafile
+inputfasta="/colossus/home/anuphap/Ortho20151125-HI/RepSeq_allprot_HI.fasta"  # input fastafile
 inputpep="/colossus/home/anuphap/e0106/blast/pepnonF.id.fasta_astranid.fasta"  # input pepfile
 #---------------These variables need to adjust-------------------------------#
 

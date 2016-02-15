@@ -13,4 +13,3 @@
 
 . /fs/home/card/.bashrc
 . /fs/home/card/.bash_profile
-

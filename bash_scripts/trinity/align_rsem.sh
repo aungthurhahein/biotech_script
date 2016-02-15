@@ -1,12 +1,29 @@
 #!/bin/bash
 #bowtie2
-trinity_loc='/share/apps/trinityrnaseq_r20140717'
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/GillN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_GillN;
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/GillW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_GillW;
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HeN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HeN;
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HeW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HeW;
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HPN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HPN;
-$trinity_loc//util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HPW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HPW;
+trinity_loc='/home/aung/software/trinityrnaseq-2.1.1'
+# kallisto
+/home/aung/software/trinityrnaseq-2.1.1/util/align_and_estimate_abundance.pl --transcripts c01_Trinity_Out/Trinity.fasta --seqType fq --single /home/aung/shrimp_31_10_2013/control_slx_tr.fastq --est_method kallisto --trinity_mode --prep_reference --output_dir control_slx_tr_RSEM
+/home/aung/software/trinityrnaseq-2.1.1/util/align_and_estimate_abundance.pl --transcripts c01_Trinity_Out/Trinity.fasta --seqType fa --single /home/aung/shrimp_31_10_2013/mature_slx_tr.fasta --est_method kallisto --trinity_mode --prep_reference --output_dir mature_slx_tr_RSEM
+/home/aung/software/trinityrnaseq-2.1.1/util/align_and_estimate_abundance.pl --transcripts c01_Trinity_Out/Trinity.fasta --seqType fa --single /home/aung/shrimp_31_10_2013/survival_slx_tr.fasta --est_method kallisto --trinity_mode --prep_reference --output_dir survival_slx_tr_RSEM
+ 
+
+kallisto index -i /home/aung/c01_trinity/c01_Trinity_Out/Trinity.fasta.kallisto_idx -k 31 c01_Trinity_Out/Trinity.fasta
+
+kallisto quant -i /home/aung/c01_trinity/c01_Trinity_Out/Trinity.fasta.kallisto_idx -o control_slx_tr_RSEM -l 390 -s 152.62 --pseudobam --single /home/aung/shrimp_31_10_2013/control_slx_tr.fastq | samtools view -Sb - > control_slx_tr_RSEM/out.bam
+/home/aung/software/trinityrnaseq-2.1.1/util/support_scripts/kallisto_trans_to_gene_results.pl control_slx_tr_RSEM/abundance.tsv c01_Trinity_Out/Trinity.fasta.gene_trans_map > control_slx_tr_RSEM/abundance.tsv.genes
+
+kallisto quant -i /home/aung/c01_trinity/c01_Trinity_Out/Trinity.fasta.kallisto_idx -o mature_slx_tr_RSEM -l 390 -s 152.62 --pseudobam --single /home/aung/shrimp_31_10_2013/mature_slx_tr.fastq | samtools view -Sb - > mature_slx_tr_RSEM/out.bam
+/home/aung/software/trinityrnaseq-2.1.1/util/support_scripts/kallisto_trans_to_gene_results.pl mature_slx_tr_RSEM/abundance.tsv c01_Trinity_Out/Trinity.fasta.gene_trans_map > mature_slx_tr_RSEM/abundance.tsv.genes
+
+kallisto quant -i /home/aung/c01_trinity/c01_Trinity_Out/Trinity.fasta.kallisto_idx -o survival_slx_tr_RSEM -l 390 -s 152.62 --pseudobam --single /home/aung/shrimp_31_10_2013/survival_slx_tr.fastq | samtools view -Sb - > survival_slx_tr_RSEM/out.bam
+/home/aung/software/trinityrnaseq-2.1.1/util/support_scripts/kallisto_trans_to_gene_results.pl survival_slx_tr_RSEM/abundance.tsv c01_Trinity_Out/Trinity.fasta.gene_trans_map > survival_slx_tr_RSEM/abundance.tsv.genes
+
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/GillN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_GillN;
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/GillW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_GillW;
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HeN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HeN;
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HeW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HeW;
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HPN.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HPN;
+$trinity_loc/util/align_and_estimate_abundance.pl --transcripts /fs/home/card/Aung/mapped/e01_pv/mapped/CAP397/pv_aunguniq_all.fasta.screen.cm.ge50.fasta.fna.cap3097.contigs_trinity_fmt.fasta --seqType fasta --single /fs/home/card/Aung/mapped/e01_pv/lessthan1000/HPW.fasta_1000_bp.fasta --est_method RSEM --aln_method bowtie2 --trinity_mode --prep_reference --output_dir e01pv_CAP397_HPW;
 
 #bamfile status
 cd e01pv_CAP397_GillN &&

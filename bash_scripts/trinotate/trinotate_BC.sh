@@ -21,7 +21,7 @@ trinotate_home="/fs/home/card/software/Trinotate-2.0.2" #trinoteate v.2.0.2
 working_dir=${PWD}
 
 #input
-trinity_file="trinity.fasta"
+trinity_file="KritSSH01_contigs_singleton.fasta_trinity_fmt.fasta"
 ext=".transdecoder.pep"
 ext2=".gene_trans_map"
 ext3=".rnammer.gff"

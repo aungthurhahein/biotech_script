@@ -19,3 +19,8 @@ if not os.path.exists(fq_path): raise Exception("No file at %s." % fa_path)
 SeqIO.convert(fq_path, "fastq", qa_path, "qual")
 SeqIO.convert(fq_path, "fastq", fa_path, "fasta")
 print "File converted successfully!"
+
+
+# python fastq-fasta.py control_slx_tr.fastq control_slx_tr.fasta control_slx_tr.qual;
+# python fastq-fasta.py mature_slx_tr.fastq mature_slx_tr.fasta mature_slx_tr.qual;
+# python fastq-fasta.py survival_slx_tr.fastq survival_slx_tr.fasta survival_slx_tr.qual;

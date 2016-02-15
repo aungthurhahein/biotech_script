@@ -7,13 +7,13 @@ step2blastp="/colossus/home/anuphap/blastscripts/blstpSECqsubNoParse.pl"
 
 #---------------These variables need to adjust-------------------------------#
 # Hint: copy from blast_prepare.sh
-basedir="/colossus/home/anuphap/e0106/blast/"
-outputloc="/colossus/home/anuphap/e0106/blast/fastafiles/"   # base dir of outputfile
-prefix="trinitynonF.id.fasta_astranid.fasta"      # prefix of output files
+basedir="/colossus/home/anuphap/ATM04-Task27/infiles/"
+outputloc="/colossus/home/anuphap/ATM04-Task27/infiles/fastafiles/"   # base dir of outputfile
+prefix="ATM04-Task27.fasta"      # prefix of output files
 outputpep="/colossus/home/anuphap/e0106/blast/pepfiles/"
 prefixpep="pepnonF.id.fasta_astranid.fasta"
 seqsize="200"  #size to split fasta file
-inputfasta="/colossus/home/anuphap/e0106/blast/trinitynonF.id.fasta_astranid.fasta"  # input fastafile
+inputfasta="/colossus/home/anuphap/ATM04-Task27/infiles/ATM04-Task27.fasta"  # input fastafile
 inputpep="/colossus/home/anuphap/e0106/blast/pepnonF.id.fasta_astranid.fasta"  # input pepfile
 #---------------------------------------------------#
 
