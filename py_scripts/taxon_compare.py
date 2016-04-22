@@ -16,7 +16,7 @@ with open(newlist,'rb') as f1:
     for line in f1:
         line_split = line.split('\t')
         newtaxon.append(line_split[0])
-avbe
+        
 with open(existlist,'rb') as f2:
     for line2 in f2:
         line2_split = line2.split('\t')

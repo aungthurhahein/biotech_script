@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="" />
     <mapping directory="$PROJECT_DIR$/../Simple-Programming-Exercise" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Simple-Terminal-RSS-reader" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../find_hib_slack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../page_brute" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../pomodoro_python" vcs="Git" />
   </component>
 </project>
-

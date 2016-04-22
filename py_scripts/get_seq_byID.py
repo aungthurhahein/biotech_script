@@ -21,11 +21,12 @@ final_records = []
 seq_id_file = []
 fasta_content={}
 
-for id in seqid_read:
-    seq_id_file.append(id.strip())
+for id_ in seqid_read:
+    seq_id_file.append(id_.strip('>')strip())
 
 for seq_record in SeqIO.parse(fastafile, "fasta"):
     fasta_content[seq_record.id.strip()] = seq_record
+
 for seq_id in seq_id_file:
     if seq_id in fasta_content:
         print seq_id

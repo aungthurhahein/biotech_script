@@ -45,7 +45,23 @@ with open(genuscount,'rb') as f2:
 # python step3_split.py blastn-x.tophit.querycatx.genus_count_expand.I6 fpkm_count_tmm_tmmnorm.matrix.I6.sort.gt0
 # python step3_split.py blastn-x.tophit.querycatx.genus_count_expand.I8 fpkm_count_tmm_tmmnorm.matrix.I8.sort.gt0
 
-python step3.py blastn-x.tophit.querycatx.genus_count_expand2.D ../fpkm_count_tmm_tmmnorm.matrix.D.sort.gt0
-python step3.py blastn-x.tophit.querycatx.genus_count_expand2.E ../fpkm_count_tmm_tmmnorm.matrix.E.sort.gt0
-python step3.py blastn-x.tophit.querycatx.genus_count_expand2.I6 ../fpkm_count_tmm_tmmnorm.matrix.I6.sort.gt0
-python step3.py blastn-x.tophit.querycatx.genus_count_expand2.I8 ../fpkm_count_tmm_tmmnorm.matrix.I8.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.D  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.D.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.E  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.E.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.I6 infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.I6.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.K  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.K.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.L  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.L.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.M  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.M.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.N  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.N.sort.gt0
+python step3.py infiles/blastn-x.tophit.querycatx_16DIV.genus_count.expand.O  infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.O.sort.gt0
+
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.D_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.D.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.D_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.E_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.E.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.E_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.I6_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.I6.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.I6_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.K_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.K.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.K_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.L_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.L.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.L_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.M_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.M.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.M_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.N_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.N.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.N_gt0.fpkm
+python ../step4.py blastn-x.tophit.querycatx_16DIV.genus_count.expand.O_gt0 ../infiles2/fpkm_count_tmm_tmmnorm.matrix_16DIV.O.sort.gt0 > fpkm_map/blastn-x.tophit.querycatx_16DIV.genus_count.expand.O_gt0.fpkm
+
+
+

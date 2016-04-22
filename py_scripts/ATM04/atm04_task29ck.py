@@ -18,4 +18,3 @@ with open(fpkmmatrix,'rb') as f1:
             sys.stdout.write(l1)
         else:
             o.write(l1)
-

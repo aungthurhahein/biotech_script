@@ -15,7 +15,6 @@ base = "/mnt/nfs/media/LIN_eclipse/2015/20150903/Ortho_20150902/analysis/descrip
 contigs = base+"contigsV22.desc"
 e0102 = base+"E0102.desc"
 siest = base+"SIEST.desc"
-
 protv22= base+"prov22.desc.sort"
 nucl =  base+"Nucl.desc"
 

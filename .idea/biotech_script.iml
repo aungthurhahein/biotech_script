@@ -13,5 +13,10 @@
     <orderEntry type="module" module-name="Simple-Programming-Exercise" />
     <orderEntry type="module" module-name="Resume" />
     <orderEntry type="module" module-name="facebook_interaction" />
+    <orderEntry type="module" module-name="5Problems" />
+    <orderEntry type="module" module-name="Icognito_Analysis" />
+    <orderEntry type="module" module-name="page_brute" />
+    <orderEntry type="module" module-name="find_hib_slack" />
+    <orderEntry type="module" module-name="minimal_porfolio" />
   </component>
 </module>

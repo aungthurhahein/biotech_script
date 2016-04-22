@@ -131,14 +131,14 @@ def main(args):
             tmplist = ""
             line_split = x.split('\t')
             # l_split = re.split(';', line_split[3].strip('\n').strip())
-            l_split = line_split[3].strip('\n').strip().split(';')
-            if len(l_split) == 1:
-                l_split = line_split[3].strip('\n').strip().split('|')
+            # l_split = line_split[3].strip('\n').strip().split(';')
+            # if len(l_split) == 1:
+            l_split = line_split[1].strip('\n').strip().split('|')
             uniqlsplit = list(set(l_split))
             tmpuniqlit = []
             for mem in uniqlsplit:
                 if mem.strip() not in tmpuniqlit:
-                    tmpuniqlit.append(mem.strip())
+                    tmpuniqlit.append(mem.strip().lower())
             for m in tmpuniqlit:
                 if tmplist == "":
                     tmplist = m.strip('\n')+"\n"
@@ -146,7 +146,7 @@ def main(args):
                     tmplist += m.strip('\n')+"\n"
 
             if len(tmplist.strip('\n').split('\n')) == 1:
-                sys.stdout.write(x.strip('\n')+"\t"+line_split[3])
+                sys.stdout.write(x)
             else:
                 documents = get_documents(tmplist.strip('\n'))      # input as list
                 add_tfidf_to(documents)
@@ -154,72 +154,29 @@ def main(args):
                 final_string = ""
                 # print result
                 for cluster in majorclust(dist_graph):
-                    tmp_result = []
-                    # print "="*20
+                    tmp_result = []                    
                     for doc_id in cluster:
                         # print documents[doc_id]["text"]
-                        tmp_result.append(documents[doc_id]["text"])
-                    uniqlist = sorted(list(set(tmp_result)))
-
-                    # playing with the clusters
-                    words = list_string(uniqlist)
-                    d2 = OrderedDict()
-
-                    for word in words.split():
-                        if word.strip('|').strip(';') not in d2:
-                            d2[word.strip('|').strip(';')] = 1
+                        tmp_result.append(documents[doc_id]["text"].strip())
+                    uniqlist = sorted(list(set(tmp_result)))                    
+                    tmp_clstout = ""
+                    tmplist2 = ""    
+                    for m in uniqlist:                        
+                        if tmp_clstout =="":
+                            tmp_clstout = m
+                            tmplist2 = m.strip('\n')+"\n"
                         else:
-                            d2[word.strip('|').strip(';')] += 1
+                            tmp_clstout += "|"+m
+                            tmplist2 += m.strip('\n')+"\n"
+                    # print uniqlist                    
+                    doc = get_documents(tmplist2.strip('\n'))
+                    add_tfidf_to(doc)
+                    dist_graph = get_distance_graph(doc)
+                    for cluster in majorclust(dist_graph):                
+                        print "="*20
+                        for doc_id in cluster:
+                            text = doc[doc_id]["text"]
+                            print text
 
-                    # print d2
-                    if len(uniqlist) > 1:
-                        tmpstring = ""
-                        for k, v in d2.iteritems():
-                            if v > 1:
-                                # tmpstring += k+' '
-                                if tmpstring == "":
-                                    if "{" in k:
-                                        tmpstring = k.split('{')[0]
-                                    elif "}" in k:
-                                        tmpstring = k.split('}')[1]
-                                    else:
-                                        tmpstring = k
-                                else:
-                                    if "{" in k:
-                                        tmpstring += " " + k.split('{')[0]
-                                    elif "}" in k:
-                                        tmpstring += " " + k.split('}')[1]
-                                    else:
-                                        tmpstring += " " + k
-                        if tmpstring == "":
-                            for mem in uniqlist:
-                                if tmpstring == "" and mem != "NoDesc":
-                                    if "{" in mem:
-                                        tmpstring = mem.split('{')[0]
-                                    elif "}" in mem:
-                                        tmpstring = mem.split('}')[1]
-                                    else:
-                                        tmpstring = mem
-                                elif mem != "NoDesc":
-                                    if "{" in mem:
-                                        tmpstring += ";"+mem.split('{')[0]
-                                    elif "}" in mem:
-                                        tmpstring += ";"+mem.split('}')[1]
-                                    else:
-                                        tmpstring += ";"+mem
-                        if final_string == "":
-                            final_string = tmpstring
-                        else:
-                            final_string = ";"+tmpstring
-                        # sys.stdout.write(x.strip('\n') + "\t" + tmpstring + '\n')
-                    else:
-                        if final_string == "":
-                            final_string = ''.join(uniqlist)
-                        else:
-                            final_string = ";" + ''.join(uniqlist)
-                # print final_string
-                sys.stdout.write(x.strip('\n') + "\t" + final_string + '\n')
-
-1
 if __name__ == '__main__':
     main(sys.argv)

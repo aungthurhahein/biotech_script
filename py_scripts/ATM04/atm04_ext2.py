@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Author: Aung Thu Rha Hein
 # @Date:   2016-02-19 13:03:06
 # @Last Modified by:   Aung Thu Rha Hein
-# @Last Modified time: 2016-02-19 16:26:44
+# @Last Modified time: 2016-02-23 16:47:29
 import sys
 idmap = sys.argv[1]
 catx_map = sys.argv[2]

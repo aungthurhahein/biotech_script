@@ -1,0 +1,24 @@
+#! /usr/bin/env/ python
+
+"""
+# 
+# usage:
+# output: 
+# Dev: __author__ = 'aung' 
+# Date: 
+"""
+import sys
+
+idmapfile = sys.argv[1]
+noninvid = sys.argv[2]
+
+noninv_id = []
+with open(noninvid,'rb') as f1:
+    for l1 in f1:
+        noninv_id.append(l1.strip('\n'))
+
+with open(idmapfile,'rb') as f2:
+    for l2 in f2:
+        l2_split = l2.split('\t')        
+        if l2_split[1] in noninv_id:
+            sys.stdout.write(l2_split[1]+'\n')

@@ -14,18 +14,25 @@ aval_node = ['compute-0-7.local', 'compute-0-8.local', 'compute-0-9.local', 'com
              'compute-0-13.local', 'compute-0-14.local', 'compute-0-15.local', 'compute-0-17.local']
 
 job_summary = {}
+job_owner = {}
 job_aval = {}
 for line in stdout:
     line_split = line.split()
     if len(line_split) > 4:
         job_stat = line_split[4]
         if job_stat == 'r':
+            job_user = line_split[3]
             job_node = line_split[7]
-            job_slot = line_split[8]
+            job_slot = line_split[8]            
             if job_node in job_summary:
-                job_summary[job_node] += int(job_slot)
+                job_summary[job_node] += int(job_slot)                
             else:
                 job_summary[job_node] = int(job_slot)
+            if job_user in job_owner:
+                job_owner[job_user] += int(job_slot)                
+            else:                
+                job_owner[job_user] = int(job_slot)                
+
 print "List of All Nodes with Occupied Slots"
 print "#------------------------------------#"
 print "Nodes\tSlots"
@@ -43,6 +50,8 @@ for key,value in job_aval.iteritems():
         print key,'\t',value,'\t',32-value
         del aval_node[aval_node.index(key)]
 
+for k,v in job_owner.iteritems():
+    print key,'\t',value
 # for nodes totally free
 for n in aval_node:
     print n, '\t0\t32'
