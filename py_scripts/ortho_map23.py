@@ -2,7 +2,7 @@
 # @Author: Aung Thu Rha Hein
 # @Date:   2016-04-21 11:49:18
 # @Last Modified by:   Aung Thu Rha Hein
-# @Last Modified time: 2016-04-21 15:34:48
+# @Last Modified time: 2016-04-25 11:09:03
 # -*- coding: utf-8 -*-
 # @Author: Aung Thu Rha Hein
 # @Date:   2016-04-21 10:36:24
@@ -56,7 +56,3 @@ with open(idlist,'rb') as f0:
                     else:
                         tmp_desc += ";"+prov22_desc[ind]
         outfile.write(clstid_+'\t'+num+'\t'+num2+'\t'+l0_split[3].strip('\n')+'\t'+tmp_desc+'\n')
-
-
-            MCL.mul.mul.mul.txt_flt
-            MCL.sing.mul.mul.txt_flt

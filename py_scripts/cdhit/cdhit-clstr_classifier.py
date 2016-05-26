@@ -13,6 +13,7 @@ import codesnippets
 clstrfile = sys.argv[1]
 clstrfile_read = open(clstrfile, 'r')
 cluster_list = []
+
 # G3-A
 # G3-N
 # G2-31A
@@ -40,11 +41,12 @@ for x in cluster_list:
     x_split = x.split('\t')
     # multi
     if len(x_split) > 2:
-        atm01 = re.search(r'>PV_ATM01\w+', x)
-        nonatm01 = re.search(r'>PV_ATM02\w+', x)
-        atm02 = re.search(r'>PV_ATM03\w+', x)
-        nonatm02 = re.search(r'>PV_ATM04\w+', x)
-        atm03 = re.search(r'>PV_ATM05\w+', x)
+        lib1 = re.search(r'>PV_8.2\w+', x)
+        lib2 = re.search(r'>PM_8.2\w+', x)
+        lib3 = re.search(r'>gi\w+', x)
+        lib4 = re.search(r'>PV_\w+', x)        
+        ref1 = re.search(r'>PM_e\w+', x)        
+        ref2 = re.search(r'>PV_e\w+', x)        
         if (atm03 and nonatm01 and nonatm02) and (atm01 or atm02):
             G3A.append(x)
         elif atm03 and nonatm01 and nonatm02:

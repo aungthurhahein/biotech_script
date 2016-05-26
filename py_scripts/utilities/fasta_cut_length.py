@@ -21,5 +21,5 @@ for seq_record in SeqIO.parse(fasta_file, "fasta"):
     if seq_len < int(length):
         final_records.append(seq_record)
     else:
-        print seq_record.id,seq_len
+        print seq_record.id,seq_len    
 SeqIO.write(final_records, "{0}_{1}_bp.fasta".format(fasta_file, length), "fasta")

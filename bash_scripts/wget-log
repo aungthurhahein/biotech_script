@@ -1,0 +1,5 @@
+--2016-05-13 15:43:31--  ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA_001620325.1_ASM162032v1/_feature_table.txt.gz
+           => ‘GCA_001620325.1_ASM162032v1/_feature_table.txt.gz’
+Resolving ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)... 130.14.250.11, 2607:f220:41e:250::13
+Connecting to ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)|130.14.250.11|:21... failed: Connection timed out.
+Connecting to ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)|2607:f220:41e:250::13|:21... failed: Network is unreachable.
